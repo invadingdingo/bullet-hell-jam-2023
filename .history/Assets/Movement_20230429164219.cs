@@ -1,0 +1,69 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Movement : MonoBehaviour {
+
+    public float speed;
+    public Rigidbody2D rb;
+    public Vector2 direction;
+
+    [Header("Dash")]
+    [SerializeField] private bool canDash = true;
+    [SerializeField] private bool dashing;
+    [SerializeField] private float dashPower;
+    [SerializeField] private float dashDuration;
+    [SerializeField] private float dashCooldown;
+    [SerializeField] private float dashCooldownTimer;
+    [SerializeField] private float dashTimer;
+
+
+    void Start() {
+        rb = GetComponent<Rigidbody2D>();
+    }
+    void Update() {
+        if (!dashing)
+            XYMovement();
+        FaceMouse();
+        Dash();
+        
+    }
+
+    void XYMovement() {
+        direction.x = Input.GetAxisRaw("Horizontal");
+        direction.y = Input.GetAxisRaw("Vertical");
+        direction = direction.normalized;
+
+        rb.velocity = speed * direction;
+    }
+
+    void FaceMouse() {
+        Vector3 mouseScreen = Input.mousePosition;
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(mouseScreen);
+
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mouse.y - transform.position.y, mouse.x - transform.position.x) * Mathf.Rad2Deg - 90);
+    }
+     
+    void Dash() {
+        if (Input.GetKey(KeyCode.LeftShift) && canDash) { // Start dash.
+            dashing = true;
+            canDash = false;
+            dashTimer = 0;
+            dashCooldownTimer = 0;
+            rb.velocity = Vector2.zero;
+            rb.velocity = direction * dashPower;
+        } else if (dashing) { // While dashing...
+            if (dashTimer > dashDuration) {
+                dashing = false;
+            } else {
+                dashTimer += Time.deltaTime;
+            }
+        } else { // Increment cooldown timer.
+            if (dashCooldownTimer < dashCooldown) {
+                dashCooldownTimer += Time.deltaTime;
+            } else {
+                canDash = true;
+            }
+        }
+    }
+}
