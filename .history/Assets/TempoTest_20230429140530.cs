@@ -14,8 +14,8 @@ public class TempoTest : MonoBehaviour {
     void Update() {
 
         if (BeatDetector.instance.onBeat)
-            v.weight = 1f;
-        else if (v.weight > 0f)
+            v.weight = 1;
+        else if (v.weight > 0)
             v.weight -= 0.002f;
         else 
             v.weight = 0f;

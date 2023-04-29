@@ -44,7 +44,6 @@ public class BeatDetector : MonoBehaviour {
         } else {
             onBeat = false;
         }
-        
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
         songPositionInBeats = (int)(songPosition / secPerBeat);
     }

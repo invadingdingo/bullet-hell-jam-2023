@@ -17,12 +17,13 @@ public class BeatDetector : MonoBehaviour {
     
 
     [Header("Beat Determiner")]
-    public bool onBeat; // True on frames that are in rhythm.
+    public bool onBeat;
         
     void Start() {
-        instance = this;
-        prevPos = 0;
 
+        instance = this;
+
+        prevPos = 0;
         //Load the AudioSource attached to the Conductor GameObject
         aus = GetComponent<AudioSource>();
 
@@ -44,8 +45,9 @@ public class BeatDetector : MonoBehaviour {
         } else {
             onBeat = false;
         }
-        
+
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+
         songPositionInBeats = (int)(songPosition / secPerBeat);
     }
 

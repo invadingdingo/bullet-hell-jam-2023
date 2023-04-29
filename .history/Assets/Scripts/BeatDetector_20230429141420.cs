@@ -22,7 +22,7 @@ public class BeatDetector : MonoBehaviour {
     void Start() {
         instance = this;
         prevPos = 0;
-
+        
         //Load the AudioSource attached to the Conductor GameObject
         aus = GetComponent<AudioSource>();
 
@@ -44,8 +44,9 @@ public class BeatDetector : MonoBehaviour {
         } else {
             onBeat = false;
         }
-        
+
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+
         songPositionInBeats = (int)(songPosition / secPerBeat);
     }
 

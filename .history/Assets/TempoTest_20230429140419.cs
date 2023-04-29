@@ -12,13 +12,10 @@ public class TempoTest : MonoBehaviour {
         v = GetComponent<Volume>();
     }
     void Update() {
-
-        if (BeatDetector.instance.onBeat)
-            v.weight = 1f;
-        else if (v.weight > 0f)
+        if (v.weight > 0) {
             v.weight -= 0.002f;
-        else 
-            v.weight = 0f;
-         
+        } else {
+            v.weight = 0;
+        }        
     }
 }

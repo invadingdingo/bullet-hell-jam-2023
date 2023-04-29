@@ -2,27 +2,29 @@ using UnityEngine;
 using System;
 
 public class BeatDetector : MonoBehaviour {
-    [Header("Utility")]
     public static BeatDetector instance;
+    public float bpm = 60;
     public AudioSource aus;
+
+    private float currentTime;
+    public bool onBeat;
+    public float beatCount;
+
+    /////
+    public float songPosition, dspSongTime, secPerBeat;
+    public int songPositionInBeats;
+    public int prevPos;
+
     public AudioSource metronome;
 
-    [Header("Metronome")]
-    public float bpm = 60; // Song's BPM
-    public float songPosition; // Determines the current position in the song.
-    public float dspSongTime; // Song's overall length.
-    public float secPerBeat; // How many seconds per beat (BPM translated).
-    public int songPositionInBeats; // Position in song based on BPM.
-    public int prevPos; // Keep track of previous position in beats to determine if on a new beat. 
-    
+    public delegate void BeatDetectedEventHandler(object source, EventArgs args);
+    public event BeatDetectedEventHandler BeatDetected;
 
-    [Header("Beat Determiner")]
-    public bool onBeat; // True on frames that are in rhythm.
-        
     void Start() {
-        instance = this;
-        prevPos = 0;
 
+        instance = this;
+
+        prevPos = 0;
         //Load the AudioSource attached to the Conductor GameObject
         aus = GetComponent<AudioSource>();
 
@@ -38,15 +40,22 @@ public class BeatDetector : MonoBehaviour {
     
     void Update() {
         if (songPositionInBeats > prevPos) {
-            onBeat = true;
+            OnBeatDetected();
             prevPos = songPositionInBeats;
             metronome.Play();
         } else {
             onBeat = false;
         }
-        
+
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
+
         songPositionInBeats = (int)(songPosition / secPerBeat);
     }
+
+    protected virtual void OnBeatDetected() {
+        if (BeatDetected != null)
+            BeatDetected(this, EventArgs.Empty);
+    }
+
 
 }
