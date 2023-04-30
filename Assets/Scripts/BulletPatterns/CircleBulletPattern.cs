@@ -23,10 +23,6 @@ public class CircleBulletPattern : MonoBehaviour {
         }
     }
 
-    void Start() {
-        Spawn(9, 2f, Vector2.right, 5f);
-    }
-
     void Update() {
         // destroy when all bullets are destroyed
         if (transform.childCount == 0) {
@@ -34,7 +30,7 @@ public class CircleBulletPattern : MonoBehaviour {
         }
 
         // rotate bullets in the orbit
-        Orbit.Rotate(0, 0, speed * 15f * Time.deltaTime);
+        Orbit.Rotate(0, 0, speed * 5f * Time.deltaTime);
 
         // move bullet pattern
         transform.Translate(direction * speed * Time.deltaTime);
