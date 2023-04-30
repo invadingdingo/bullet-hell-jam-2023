@@ -39,7 +39,7 @@ public class EnemyCircle : MonoBehaviour {
             CircleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
 
             pattern.Spawn(
-                count: 10,
+                count: 5,
                 radius: 5f,
                 direction: dirToPlayer,
                 speed: 20f
