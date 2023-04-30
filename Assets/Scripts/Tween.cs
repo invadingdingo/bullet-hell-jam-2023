@@ -31,6 +31,10 @@ public static class Tween {
         return EaseIn(Flip(t) / 0.5f);
     }
 
+    public static float EaseInFlip(float t) {
+        return EaseIn(Flip(t));
+    }
+
     static IEnumerator Animator(float start, float end, float duration, Func<float, float> interpolateFn, Action<float> fn) {
         float time = 0f;
         while (time < duration) {

@@ -31,7 +31,7 @@ public class EnemyCircle : MonoBehaviour {
             time = BulletSpawnDelay;
 
             // juice up the scale
-            Tween.Animate(this, 1f, 1.3f, 0.2f, Tween.Spike, s => {
+            Tween.Animate(this, 1f, 1.3f, 0.2f, Tween.EaseInFlip, s => {
                 SpriteTransform.localScale = new Vector3(s, s, 1f);
             });
 
