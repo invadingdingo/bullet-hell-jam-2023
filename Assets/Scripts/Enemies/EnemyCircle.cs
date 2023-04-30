@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyCircle : MonoBehaviour {
     public CircleBulletPattern BulletPattern;
     public float BulletSpawnDelay = 2f;
+    public Transform SpriteTransform;
+    public Transform EyeTransform;
+    public Transform PlayerTransform;
 
     private float time;
 
@@ -13,10 +16,24 @@ public class EnemyCircle : MonoBehaviour {
     }
 
     void Update() {
+        Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
+
+        // rotate sprite
+        SpriteTransform.Rotate(0, 0, -45f * Time.deltaTime);
+
+        // move eye
+        EyeTransform.localPosition = dirToPlayer * 0.35f;
+
+        // spawn bullets
         if (time > 0) {
             time -= Time.deltaTime;
         } else {
             time = BulletSpawnDelay;
+
+            // juice up the scale
+            Tween.Animate(this, 1f, 1.3f, 0.2f, Tween.Spike, s => {
+                SpriteTransform.localScale = new Vector3(s, s, 1f);
+            });
 
             // spawn bullets
             CircleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
@@ -24,7 +41,7 @@ public class EnemyCircle : MonoBehaviour {
             pattern.Spawn(
                 count: 10,
                 radius: 5f,
-                direction: Vector2.right,
+                direction: dirToPlayer,
                 speed: 20f
             );
         }
