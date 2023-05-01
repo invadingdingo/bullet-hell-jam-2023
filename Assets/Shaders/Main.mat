@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Omni
+  m_Name: Main
   m_Shader: {fileID: -6465566751694194690, guid: f641da2fd39e30542b99b6e8da59bd6d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Bloom: 3.7
+    - _Bloom: 2.8
     - _Crack: 0
     m_Colors:
     - _Color: {r: 0.4950781, g: 0, b: 1, a: 0}
