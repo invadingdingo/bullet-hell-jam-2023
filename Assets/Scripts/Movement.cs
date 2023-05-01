@@ -18,9 +18,11 @@ public class Movement : MonoBehaviour {
     [SerializeField] private float dashCooldownTimer;
     [SerializeField] private float dashTimer;
 
+    [SerializeField] private float dashDistance;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        dashDistance = (dashDuration * dashPower);
     }
     void Update() {
         //Debug.Log((Quaternion.Euler(0, 0, transform.eulerAngles.z) * Vector3.right).normalized);
@@ -59,10 +61,10 @@ public class Movement : MonoBehaviour {
         
             if (!mouseDirectionalDash) {
                 // 4.2f is approximately the length of the dash. This will need to be changed if we change dash values. 
-                hit = Physics2D.OverlapCircle(transform.position + 4.2f * new Vector3(direction.x, direction.y, 0f).normalized, 0.1f);
+                hit = Physics2D.OverlapCircle(transform.position + dashDistance * new Vector3(direction.x, direction.y, 0f).normalized, 0.1f);
                 rb.velocity = direction * dashPower;
             } else {
-                hit = Physics2D.OverlapCircle(transform.position + 4.2f * (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized, 0.1f);
+                hit = Physics2D.OverlapCircle(transform.position + dashDistance * (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized, 0.1f);
                 rb.velocity = (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized * dashPower;
             }
 
@@ -75,6 +77,7 @@ public class Movement : MonoBehaviour {
 
         } else if (dashing) { // While dashing...
             if (dashTimer > dashDuration) {
+                Physics2D.IgnoreLayerCollision(3, 6, false); // Reenable collision between Player (3) and Wall (6)
                 dashing = false;
             } else {
                 dashTimer += Time.deltaTime;
@@ -83,7 +86,6 @@ public class Movement : MonoBehaviour {
             if (dashCooldownTimer < dashCooldown) {
                 dashCooldownTimer += Time.deltaTime;
             } else {
-                Physics2D.IgnoreLayerCollision(3, 6, false); // Reenable collision between Player (3) and Wall (6)
                 canDash = true;
             }
         }

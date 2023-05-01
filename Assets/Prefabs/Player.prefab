@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6041281014339333704}
   - component: {fileID: 6041281014339333705}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ad50ab7ab2d82ee4f8d700ec3a75096d, type: 3}
-  m_Color: {r: 0, g: 0.6879034, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.9960785, b: 0.9960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6041281014737255984}
   - component: {fileID: 6041281014737255985}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slice 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6041281014931139492}
   - component: {fileID: 6041281014931139493}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slice 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6041281015289458383}
-  m_Layer: 0
+  - component: {fileID: 6562308215198741495}
+  - component: {fileID: 2355224476170641818}
+  - component: {fileID: 4849313492223823078}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 6041281015289458382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6041281014339333704}
@@ -285,6 +288,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6562308215198741495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041281015289458382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8de9144e8a2c754b916783421db1993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  rb: {fileID: 0}
+  direction: {x: 0, y: 0}
+  mouseDirectionalDash: 1
+  canDash: 1
+  dashing: 0
+  dashPower: 26
+  dashDuration: 0.2
+  dashCooldown: 0.5
+  dashCooldownTimer: 0
+  dashTimer: 0
+--- !u!50 &2355224476170641818
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041281015289458382}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &4849313492223823078
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041281015289458382}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &6041281016079898370
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6041281016079898371}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6041281016210897853}
   - component: {fileID: 6041281016210897854}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slice 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
