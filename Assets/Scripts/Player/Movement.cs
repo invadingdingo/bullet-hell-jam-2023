@@ -52,8 +52,9 @@ public class Movement : MonoBehaviour {
             dashing = true;
             canDash = false;
             dashTimer = 0;
-            // dashCooldownTimer = 0;
             rb.velocity = Vector2.zero;
+
+            Physics2D.IgnoreLayerCollision(3, 7, true); // Begin iFrames
 
             // Raycast to see if there is a dashable platform.
             Collider2D hit = null;
@@ -76,6 +77,7 @@ public class Movement : MonoBehaviour {
         } else if (dashing) { // While dashing...
             if (dashTimer > dashDuration) {
                 Physics2D.IgnoreLayerCollision(3, 6, false); // Reenable collision between Player (3) and Wall (6)
+                Physics2D.IgnoreLayerCollision(3, 7, false); // End iFrames
                 dashing = false;
             } else {
                 dashTimer += Time.deltaTime;
