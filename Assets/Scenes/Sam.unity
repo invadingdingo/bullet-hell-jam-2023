@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &86101724
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mx: {fileID: 24100000, guid: d0ef646c0ba35db449db75f846959c32, type: 2}
-  musicVolume: 0
+  musicVolume: -80
   sfxVolume: 0
   mouseDash: 1
 --- !u!4 &488516979
@@ -1712,11 +1712,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e129852724a46b24ba6417ff4a6c3b64, type: 3}
---- !u!1 &846687803 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6041281016079898370, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-  m_PrefabInstance: {fileID: 1006474254}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &859172024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,14 +1923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2685348197470258079, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: beatC
-      value: 
-      objectReference: {fileID: 1890791080}
-    - target: {fileID: 2685348197470258079, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6041281015289458382, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1982,22 +1969,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6041281015289458383, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6562308215198741495, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: pizza
-      value: 
-      objectReference: {fileID: 846687803}
-    - target: {fileID: 6562308215198741495, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6562308215198741495, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: dashPower
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6562308215198741495, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: dashBeatCooldown
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
