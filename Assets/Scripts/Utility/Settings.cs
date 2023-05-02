@@ -11,15 +11,19 @@ public class Settings : MonoBehaviour {
 
     [Header("Volume")]
     [Range(-80, 0)]
-    public float musicVolume = 0.5f;
+    public float musicVolume = -10f;
     [Range(-80, 0)]
-    public float sfxVolume = 0.5f;
+    public float sfxVolume = -10f;
 
     [Header("Gameplay")]
     public bool mouseDash = false;
 
     void Awake() {
-        instance = this;
+        if (instance != null && instance != this) { 
+            Destroy(this); 
+        } else { 
+            instance = this; 
+        } 
     }
 
     void Update() {
@@ -28,7 +32,7 @@ public class Settings : MonoBehaviour {
 
     public void UpdateVolume() {
         mx.SetFloat("Music", musicVolume);
-        //mixer.SetFloat("SFX", sfxVolume);
+        mx.SetFloat("SFX", sfxVolume);
     }
 
 }
