@@ -28,13 +28,14 @@ public class BeatCounter : MonoBehaviour {
 	
 	void Awake () {
 		// Calculate number of samples between each beat.
+		instance = this;
 		float audioBpm = audioSource.GetComponent<BeatSynchronizer>().bpm;
 		samplePeriod = (60f / (audioBpm * BeatDecimalValues.values[(int)beatValue])) * audioSource.clip.frequency;
 		nextBeatSample = 0f;
 	}
 
 	void Start () {
-		instance = this;
+		
 	}
 
 	void StartBeatCheck (double syncTime) {
