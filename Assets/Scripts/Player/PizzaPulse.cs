@@ -7,7 +7,7 @@ public class PizzaPulse : MonoBehaviour {
     public GameObject pizza;
 
     void Start() {
-        BeatCounter.instance.AddListener(OnBeat);
+        BeatManager.instance.AddQuarter(OnBeat);
     }
     void OnBeat() {
         Tween.Animate(this, 0.5f, 1f, 0.2f, Tween.EaseIn, s => {

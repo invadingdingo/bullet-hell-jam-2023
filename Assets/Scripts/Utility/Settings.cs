@@ -10,9 +10,9 @@ public class Settings : MonoBehaviour {
     public AudioMixer mx;
 
     [Header("Volume")]
-    [Range(-80, 0)]
+    [Range(-20, 0)]
     public float musicVolume = -10f;
-    [Range(-80, 0)]
+    [Range(-20, 0)]
     public float sfxVolume = -10f;
 
     [Header("Gameplay")]

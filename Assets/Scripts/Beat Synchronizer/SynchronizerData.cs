@@ -15,7 +15,9 @@ namespace SynchronizerData {
 		HalfBeat,
 		HalfDottedBeat,
 		WholeBeat,
-		WholeDottedBeat
+		WholeDottedBeat,
+		Triplet,
+		DottedTriplet
 	}
 
 	// BeatType is used to specify whether the beat value is an off-beat, on-beat, up-beat, or a down-beat.
@@ -41,7 +43,8 @@ namespace SynchronizerData {
 			2f, 2f/dottedBeatModifier,			// eighth, dotted eighth
 			1f, 1f/dottedBeatModifier,			// quarter, dotted quarter
 			0.5f, 0.5f/dottedBeatModifier,		// half, dotted half
-			0.25f, 0.25f/dottedBeatModifier		// whole, dotted whole
+			0.25f, 0.25f/dottedBeatModifier,	// whole, dotted whole
+			3f, 3f/dottedBeatModifier		// triplet, dotted triplet
 		};
 	}
 

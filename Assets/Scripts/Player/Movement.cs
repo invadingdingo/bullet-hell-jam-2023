@@ -16,11 +16,10 @@ public class Movement : MonoBehaviour {
     [SerializeField] private float dashTimer;
     [SerializeField] private float dashBeatCooldown;
     [SerializeField] private float dashBeatCooldownCount;
-
     [SerializeField] private float dashDistance;
 
     void Start() {
-        BeatCounter.instance.AddListener(RechargeDash);
+        BeatManager.instance.AddQuarter(RechargeDash);
         rb = GetComponent<Rigidbody2D>();
         dashDistance = (dashDuration * dashPower);
     }

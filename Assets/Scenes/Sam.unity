@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &86101724
 Transform:
   m_ObjectHideFlags: 0
@@ -387,6 +387,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275575615}
   m_CullTransparentMesh: 1
+--- !u!1 &282276281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282276282}
+  - component: {fileID: 282276283}
+  m_Layer: 0
+  m_Name: BeatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &282276282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282276281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1495417335}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &282276283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282276281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fafce4cd0bb304449dbf64a6b1434af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &286156955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &488516978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,8 +1326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mx: {fileID: 24100000, guid: d0ef646c0ba35db449db75f846959c32, type: 2}
-  musicVolume: -80
-  sfxVolume: 0
+  musicVolume: 0
+  sfxVolume: -5.9
   mouseDash: 1
 --- !u!4 &488516979
 Transform:
@@ -1298,7 +1342,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1495417335}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &509082823 stripped
 Transform:
@@ -1923,10 +1967,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1686821527, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: health
-      value: 3
+    - target: {fileID: 1635049209, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 265302656201835831, guid: 1bbe0a4f07e842b4aa501cb2b06f2f5f, type: 3}
+    - target: {fileID: 1635049209, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
+      propertyPath: bulletSpeed
+      value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 1635049209, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
+      propertyPath: BulletPattern
+      value: 
+      objectReference: {fileID: 4198977907134924825, guid: c3f7b43f07379b041ae329e9fe17a72d, type: 3}
     - target: {fileID: 6041281015289458382, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1974,14 +2026,6 @@ PrefabInstance:
     - target: {fileID: 6041281015289458383, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041281016079898371, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6041281016079898371, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8552f975b916bc44bb2ef555a576854, type: 3}
@@ -2051,9 +2095,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136807153}
-  - component: {fileID: 1136807151}
-  - component: {fileID: 1136807154}
   - component: {fileID: 1136807155}
+  - component: {fileID: 1136807154}
+  - component: {fileID: 1136807151}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -2174,7 +2218,7 @@ Transform:
   - {fileID: 345237547}
   - {fileID: 974186131}
   m_Father: {fileID: 1495417335}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1136807154
 MonoBehaviour:
@@ -2363,6 +2407,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207697399}
   m_CullTransparentMesh: 1
+--- !u!1 &1235365182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235365183}
+  - component: {fileID: 1235365184}
+  m_Layer: 0
+  m_Name: Triplet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1235365183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235365182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -475.7271, y: -378.9678, z: 3.181128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1495417335}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1235365184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235365182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37888a54d2cd944ab69df43853e7335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatValue: 11
+  loopTime: 3
+  audioSource: {fileID: 1136807151}
 --- !u!1 &1253790602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,6 +2689,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 282276282}
+  - {fileID: 1235365183}
   - {fileID: 1890791081}
   - {fileID: 1136807153}
   - {fileID: 488516979}
@@ -3543,7 +3636,7 @@ GameObject:
   - component: {fileID: 1890791081}
   - component: {fileID: 1890791080}
   m_Layer: 0
-  m_Name: Beat Counter
+  m_Name: Quarter Beat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3577,7 +3670,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1495417335}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900683656
 GameObject:

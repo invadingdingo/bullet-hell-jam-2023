@@ -11,12 +11,12 @@ public class TempoTest : MonoBehaviour {
     void Start() {
         // Subscribe this object's OnBeat to the OnBeatEvent delegate 
         // held in the BeatCounter singleton.
-        BeatCounter.instance.AddListener(OnBeat);
+        BeatManager.instance.AddQuarter(OnBeat);
 
         v = GetComponent<Volume>();
     }
     void OnDestroy() {
-        BeatCounter.instance.RemoveListener(OnBeat);
+        BeatManager.instance.RemoveQuarter(OnBeat);
     }
 
     // This will be called whenever the event is triggered.
