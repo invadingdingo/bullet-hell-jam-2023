@@ -1328,7 +1328,7 @@ MonoBehaviour:
   mx: {fileID: 24100000, guid: d0ef646c0ba35db449db75f846959c32, type: 2}
   musicVolume: 0
   sfxVolume: -5.9
-  mouseDash: 1
+  mouseDash: 0
 --- !u!4 &488516979
 Transform:
   m_ObjectHideFlags: 0
