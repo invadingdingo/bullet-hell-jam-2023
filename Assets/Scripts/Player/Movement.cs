@@ -14,13 +14,16 @@ public class Movement : MonoBehaviour {
     [SerializeField] private bool dashing;
     [SerializeField] private float dashPower;
     [SerializeField] private float dashDuration;
-    [SerializeField] private float dashCooldown;
-    [SerializeField] private float dashCooldownTimer;
+    // [SerializeField] private float dashCooldown; 
+    // [SerializeField] private float dashCooldownTimer;
     [SerializeField] private float dashTimer;
+    [SerializeField] private float dashBeatCooldown;
+    [SerializeField] private float dashBeatCooldownCount;
 
     [SerializeField] private float dashDistance;
 
     void Start() {
+        BeatCounter.instance.AddListener(RechargeDash);
         rb = GetComponent<Rigidbody2D>();
         dashDistance = (dashDuration * dashPower);
     }
@@ -53,7 +56,7 @@ public class Movement : MonoBehaviour {
             dashing = true;
             canDash = false;
             dashTimer = 0;
-            dashCooldownTimer = 0;
+            // dashCooldownTimer = 0;
             rb.velocity = Vector2.zero;
 
             // Raycast to see if there is a dashable platform.
@@ -82,12 +85,25 @@ public class Movement : MonoBehaviour {
             } else {
                 dashTimer += Time.deltaTime;
             }
-        } else { // Increment cooldown timer.
-            if (dashCooldownTimer < dashCooldown) {
-                dashCooldownTimer += Time.deltaTime;
+        } 
+        // else { // Increment cooldown timer.
+            // if (dashCooldownTimer < dashCooldown) {
+                // dashCooldownTimer += Time.deltaTime;
+            // } else {
+                // canDash = true;
+            // }
+        // }
+    }
+
+    void RechargeDash() {
+        if (!dashing && !canDash) {
+            if (dashBeatCooldownCount < dashBeatCooldown) {
+                dashBeatCooldownCount++;
             } else {
+                dashBeatCooldownCount = 0;
                 canDash = true;
             }
         }
     }
+
 }
