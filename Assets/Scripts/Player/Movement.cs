@@ -9,13 +9,10 @@ public class Movement : MonoBehaviour {
     public Vector2 direction;
 
     [Header("Dash")]
-    [SerializeField] private bool mouseDirectionalDash;
     [SerializeField] private bool canDash = true;
     [SerializeField] private bool dashing;
     [SerializeField] private float dashPower;
     [SerializeField] private float dashDuration;
-    // [SerializeField] private float dashCooldown; 
-    // [SerializeField] private float dashCooldownTimer;
     [SerializeField] private float dashTimer;
     [SerializeField] private float dashBeatCooldown;
     [SerializeField] private float dashBeatCooldownCount;
@@ -28,7 +25,6 @@ public class Movement : MonoBehaviour {
         dashDistance = (dashDuration * dashPower);
     }
     void Update() {
-        //Debug.Log((Quaternion.Euler(0, 0, transform.eulerAngles.z) * Vector3.right).normalized);
         if (!dashing)
             XYMovement();
         FaceMouse();
@@ -62,8 +58,7 @@ public class Movement : MonoBehaviour {
             // Raycast to see if there is a dashable platform.
             Collider2D hit = null;
         
-            if (!mouseDirectionalDash) {
-                // 4.2f is approximately the length of the dash. This will need to be changed if we change dash values. 
+            if (!Settings.instance.mouseDash) {
                 hit = Physics2D.OverlapCircle(transform.position + dashDistance * new Vector3(direction.x, direction.y, 0f).normalized, 0.1f);
                 rb.velocity = direction * dashPower;
             } else {
@@ -86,13 +81,6 @@ public class Movement : MonoBehaviour {
                 dashTimer += Time.deltaTime;
             }
         } 
-        // else { // Increment cooldown timer.
-            // if (dashCooldownTimer < dashCooldown) {
-                // dashCooldownTimer += Time.deltaTime;
-            // } else {
-                // canDash = true;
-            // }
-        // }
     }
 
     void RechargeDash() {
