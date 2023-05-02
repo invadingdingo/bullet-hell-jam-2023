@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 2355224476170641818}
   - component: {fileID: 4849313492223823078}
   - component: {fileID: 2685348197470258079}
+  - component: {fileID: 1686821527}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -362,6 +363,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pizza: {fileID: 6041281016079898370}
+--- !u!114 &1686821527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041281015289458382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4ffa47c2ebbe245b55c67efdcabaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  slices:
+  - {fileID: 6041281014737255991}
+  - {fileID: 6041281014931139547}
+  - {fileID: 6041281016210897852}
 --- !u!1 &6041281016079898370
 GameObject:
   m_ObjectHideFlags: 0
