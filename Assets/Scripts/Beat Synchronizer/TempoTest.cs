@@ -21,7 +21,7 @@ public class TempoTest : MonoBehaviour {
 
     // This will be called whenever the event is triggered.
     void OnBeat() {
-        Tween.Animate(this, .01f, 0.1f, 0.2f, Tween.EaseIn, s => {
+        Tween.Animate(this, 0.8f, 1f, 0.2f, Tween.EaseIn, s => {
             v.weight = s;
         });  
     }

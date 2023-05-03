@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  rb: {fileID: 0}
+  rb: {fileID: 2355224476170641818}
   direction: {x: 0, y: 0}
   canDash: 1
   dashing: 0
@@ -517,6 +517,7 @@ MonoBehaviour:
   dashBeatCooldown: 0
   dashBeatCooldownCount: 0
   dashDistance: 0
+  mousePressed: 0
 --- !u!114 &1635049209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,11 +530,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bc6eb073c3a004d97354e56a758637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPattern: {fileID: 0}
+  Bullet: {fileID: 265302656201835831, guid: 1bbe0a4f07e842b4aa501cb2b06f2f5f, type: 3}
   spawnPoint:
   - {fileID: 5727913431993140121}
   - {fileID: 276296391844816061}
-  bulletSpeed: 20
+  bulletSpeed: 60
 --- !u!114 &1686821527
 MonoBehaviour:
   m_ObjectHideFlags: 0

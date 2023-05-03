@@ -10,7 +10,7 @@ public class PizzaPulse : MonoBehaviour {
         BeatManager.instance.AddQuarter(OnBeat);
     }
     void OnBeat() {
-        Tween.Animate(this, 0.5f, 1f, 0.2f, Tween.EaseIn, s => {
+        Tween.Animate(this, 0.8f, 1f, 0.2f, Tween.EaseIn, s => {
             pizza.transform.localScale = new Vector3(s, s, 1f);
         });
     }

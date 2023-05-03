@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CircleBulletPattern : MonoBehaviour {
-    public GameObject BulletPrefab;
     public Transform Orbit;
 
     private float speed;
     private Vector2 direction;
 
-    public void Spawn(int count, float radius, Vector2 direction, float speed) {
+    public void Spawn(GameObject prefab, int count, float radius, Vector2 direction, float speed) {
         this.speed = speed;
         this.direction = direction;
 
@@ -18,7 +17,7 @@ public class CircleBulletPattern : MonoBehaviour {
         for (int i = 0; i < count; i++) {
             float x = radius * Mathf.Cos(interval * i);
             float y = radius * Mathf.Sin(interval * i);
-            GameObject bullet = Instantiate(BulletPrefab, Orbit);
+            GameObject bullet = Instantiate(prefab, Orbit);
             bullet.transform.Translate(new Vector3(x, y, 0));
         }
     }

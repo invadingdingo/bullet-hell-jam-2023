@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCircle : MonoBehaviour {
-    public CircleBulletPattern BulletPattern;
+public class EnemySpawn : MonoBehaviour {
+    public SingleBulletPattern BulletPattern;
     public GameObject BulletPrefab;
-    public float BulletSpawnDelay = 2f;
+    public float BulletSpawnDelay = 5f;
     public Transform SpriteTransform;
     public Transform EyeTransform;
     public Transform PlayerTransform;
@@ -37,14 +37,12 @@ public class EnemyCircle : MonoBehaviour {
             });
 
             // spawn bullets
-            CircleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
+            SingleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
 
             pattern.Spawn(
                 prefab: BulletPrefab,
-                count: 10,
-                radius: 5f,
                 direction: dirToPlayer,
-                speed: 20f
+                speed: 5f
             );
         }
     }
