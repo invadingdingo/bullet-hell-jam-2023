@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class Settings : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 
-    public static Settings instance;
+    public static GameManager instance;
 
     public AudioMixer mx;
 
@@ -18,16 +18,14 @@ public class Settings : MonoBehaviour {
     [Header("Gameplay")]
     public bool mouseDash = false;
 
+    public int enemyCount = 0;
+
     void Awake() {
         if (instance != null && instance != this) { 
             Destroy(this); 
         } else { 
             instance = this; 
         } 
-    }
-
-    void Update() { // Look for way to do this from inspector
-        UpdateVolume(); 
     }
 
     public void UpdateVolume() {

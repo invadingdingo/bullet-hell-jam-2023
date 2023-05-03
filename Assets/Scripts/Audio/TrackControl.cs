@@ -18,17 +18,8 @@ public class TrackControl : MonoBehaviour {
             playing[x] = false;
     }
 
-    public void AddEnemy() {
-        if(enemyCount < sources.Length)
-            enemyCount++;
-    }
-
-    public void RemoveEnemy() {
-        if (enemyCount != 0)
-            enemyCount--;
-    }
-
     void Update() {
+        enemyCount = GameManager.instance.enemyCount;
         if (enemyCount > prevEnemyCount && enemyCount <= sources.Length) {
             for(int x = 0; x < enemyCount; x++) {
                 if (!playing[x]) {
