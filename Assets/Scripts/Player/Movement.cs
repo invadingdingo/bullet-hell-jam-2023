@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour {
     [SerializeField] private float dashBeatCooldown;
     [SerializeField] private float dashBeatCooldownCount;
     [SerializeField] private float dashDistance;
+    [SerializeField] public bool mousePressed;
 
     void Start() {
         BeatManager.instance.AddQuarter(RechargeDash);

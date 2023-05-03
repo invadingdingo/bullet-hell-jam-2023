@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1074219848341724938, guid: 289093200f3301e46aa3ba36eff89d43, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1074219848341724951, guid: 289093200f3301e46aa3ba36eff89d43, type: 3}
       propertyPath: m_Name
@@ -90,4 +90,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4bbd0d13088ccb40be990dc4f44e1f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 0}

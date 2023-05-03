@@ -9,6 +9,7 @@ public class Shoot : MonoBehaviour {
     public StraightBullet Bullet;
     public GameObject[] spawnPoint;
     private Transform currentSpawn;
+
     public float bulletSpeed;
     private bool shootRight;
     
@@ -34,7 +35,6 @@ public class Shoot : MonoBehaviour {
                 direction: (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized,
                 speed: bulletSpeed
             );
-
 
             audio.Stop();
             audio.Play();
