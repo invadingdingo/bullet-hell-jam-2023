@@ -12,23 +12,23 @@ public class PauseMenu : MonoBehaviour {
     [Header("Gameplay")]
     public Toggle mouseDashToggle;
     void OnEnable() {
-        musicVolumeSlider.value = Settings.instance.musicVolume;
-        sfxVolumeSlider.value = Settings.instance.sfxVolume;
-        mouseDashToggle.isOn = Settings.instance.mouseDash;
+        musicVolumeSlider.value = GameManager.instance.musicVolume;
+        sfxVolumeSlider.value = GameManager.instance.sfxVolume;
+        mouseDashToggle.isOn = GameManager.instance.mouseDash;
     }
 
     public void UpdateMusic() {
-        Settings.instance.musicVolume = musicVolumeSlider.value;
-        Settings.instance.UpdateVolume();
+        GameManager.instance.musicVolume = musicVolumeSlider.value;
+        GameManager.instance.UpdateVolume();
     }
 
     public void UpdateSFX() {
-        Settings.instance.sfxVolume = sfxVolumeSlider.value;
-        Settings.instance.UpdateVolume();
+        GameManager.instance.sfxVolume = sfxVolumeSlider.value;
+        GameManager.instance.UpdateVolume();
     }
 
     public void UpdateMouseDash() {
-        Settings.instance.mouseDash = mouseDashToggle.isOn;
+        GameManager.instance.mouseDash = mouseDashToggle.isOn;
     }
 
 }
