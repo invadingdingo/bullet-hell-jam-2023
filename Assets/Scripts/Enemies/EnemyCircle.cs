@@ -6,7 +6,6 @@ public class EnemyCircle : MonoBehaviour {
     public CircleBulletPattern BulletPattern;
     public GameObject BulletPrefab;
     public float BulletSpawnDelay = 2f;
-    public Transform SpriteTransform;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
@@ -24,10 +23,10 @@ public class EnemyCircle : MonoBehaviour {
             Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
 
             // rotate sprite
-            SpriteTransform.Rotate(0, 0, -45f * Time.deltaTime);
+            transform.Rotate(0, 0, -45f * Time.deltaTime);
 
             // move eye
-            EyeTransform.localPosition = dirToPlayer * 0.3f;
+            EyeTransform.position = transform.position + dirToPlayer * 0.3f;
 
             // spawn bullets
             if (time > 0) {
@@ -37,7 +36,7 @@ public class EnemyCircle : MonoBehaviour {
 
                 // juice up the scale
                 Tween.Animate(this, 1.3f, 1f, 0.2f, Tween.EaseIn, s => {
-                    SpriteTransform.localScale = new Vector3(s, s, 1f);
+                    transform.localScale = new Vector3(s, s, 1f);
                 });
 
                 // spawn bullets

@@ -6,7 +6,6 @@ public class EnemyRadial : MonoBehaviour {
     public RadialBulletPattern BulletPattern;
     public GameObject BulletPrefab;
     public float BulletSpawnDelay = 1f;
-    public Transform SpriteTransform;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
@@ -17,17 +16,16 @@ public class EnemyRadial : MonoBehaviour {
     }
 
     void Update() {
-
         if (PlayerTransform == null) {
             PlayerTransform = GetComponent<FindPlayer>().Find();
         } else {
             Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
 
             // rotate sprite
-            SpriteTransform.Rotate(0, 0, -45f * Time.deltaTime);
+            transform.Rotate(0, 0, -45f * Time.deltaTime);
 
             // move eye
-            EyeTransform.localPosition = dirToPlayer * 0.3f;
+            EyeTransform.position = transform.position + dirToPlayer * 0.3f;
 
             // spawn bullets
             if (time > 0) {
@@ -37,7 +35,7 @@ public class EnemyRadial : MonoBehaviour {
 
                 // juice up the scale
                 Tween.Animate(this, 1.3f, 1f, 0.2f, Tween.EaseIn, s => {
-                    SpriteTransform.localScale = new Vector3(s, s, 1f);
+                    transform.localScale = new Vector3(s, s, 1f);
                 });
 
                 // spawn bullets
@@ -48,7 +46,7 @@ public class EnemyRadial : MonoBehaviour {
                     count: 6,
                     radius: 3f,
                     speed: 20f,
-                    rotationOffset: (SpriteTransform.rotation.eulerAngles.z + 15f) * Mathf.Deg2Rad
+                    rotationOffset: (transform.rotation.eulerAngles.z + 15f) * Mathf.Deg2Rad
                 );
             }
         }

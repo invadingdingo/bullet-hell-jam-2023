@@ -6,7 +6,6 @@ public class EnemySpawn : MonoBehaviour {
     public SingleBulletPattern BulletPattern;
     public GameObject BulletPrefab;
     public float BulletSpawnDelay = 5f;
-    public Transform SpriteTransform;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
@@ -17,18 +16,16 @@ public class EnemySpawn : MonoBehaviour {
     }
 
     void Update() {
-
         if (PlayerTransform == null) {
             PlayerTransform = GetComponent<FindPlayer>().Find();
         } else {
-
             Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
 
             // rotate sprite
-            SpriteTransform.Rotate(0, 0, -45f * Time.deltaTime);
+            transform.Rotate(0, 0, -45f * Time.deltaTime);
 
             // move eye
-            EyeTransform.localPosition = dirToPlayer * 0.3f;
+            EyeTransform.position = transform.position + dirToPlayer * 0.3f;
 
             // spawn bullets
             if (time > 0) {
@@ -38,7 +35,7 @@ public class EnemySpawn : MonoBehaviour {
 
                 // juice up the scale
                 Tween.Animate(this, 1.3f, 1f, 0.2f, Tween.EaseIn, s => {
-                    SpriteTransform.localScale = new Vector3(s, s, 1f);
+                    transform.localScale = new Vector3(s, s, 1f);
                 });
 
                 // spawn bullets

@@ -70,7 +70,7 @@ public class Movement : MonoBehaviour {
             // Raycast to see if there is a dashable platform.
             Collider2D hit = null;
         
-            if (!Settings.instance.mouseDash) {
+            if (!GameManager.instance.mouseDash) {
                 hit = Physics2D.OverlapCircle(transform.position + dashDistance * new Vector3(direction.x, direction.y, 0f).normalized, 0.1f, platformLayerMask);
                 rb.velocity = direction * dashPower;
             } else {

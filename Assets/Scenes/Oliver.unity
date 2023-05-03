@@ -1362,6 +1362,7 @@ MonoBehaviour:
   musicVolume: -19.44
   sfxVolume: -20
   mouseDash: 0
+  enemyCount: 0
 --- !u!4 &488516979
 Transform:
   m_ObjectHideFlags: 0
