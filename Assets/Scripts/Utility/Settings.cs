@@ -26,8 +26,8 @@ public class Settings : MonoBehaviour {
         } 
     }
 
-    void Update() {
-        UpdateVolume();
+    void Update() { // Look for way to do this from inspector
+        UpdateVolume(); 
     }
 
     public void UpdateVolume() {
