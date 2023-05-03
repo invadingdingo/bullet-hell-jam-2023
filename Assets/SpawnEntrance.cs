@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnIntrance : MonoBehaviour {
+public class SpawnEntrance : MonoBehaviour {
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private List<GameObject> spawnVisuals;
     [SerializeField] private GameObject spawnVisualPrefab;
