@@ -5,7 +5,6 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
 
     public float speed;
-    public Rigidbody2D rb;
     public Vector2 direction;
 
     [Header("Dash")]
@@ -18,6 +17,8 @@ public class Movement : MonoBehaviour {
     [SerializeField] private float dashBeatCooldownCount;
     [SerializeField] private float dashDistance;
     [SerializeField] public bool mousePressed;
+
+    private Rigidbody2D rb;
 
     void Start() {
         BeatManager.instance.AddQuarter(RechargeDash);

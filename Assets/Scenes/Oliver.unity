@@ -286,6 +286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyRadial
       objectReference: {fileID: 0}
+    - target: {fileID: 985250918923299557, guid: 6b0d960101b030148a01f1147cc7e46f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 985250918923299558, guid: 6b0d960101b030148a01f1147cc7e46f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1355,8 +1359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mx: {fileID: 24100000, guid: d0ef646c0ba35db449db75f846959c32, type: 2}
-  musicVolume: 0
-  sfxVolume: -5.9
+  musicVolume: -18.34
+  sfxVolume: -19.36
   mouseDash: 0
 --- !u!4 &488516979
 Transform:
@@ -2266,6 +2270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 985250918923299557, guid: 01d74cc211556664c997b45cdbadcfdf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 985250918923299558, guid: 01d74cc211556664c997b45cdbadcfdf, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3014,6 +3022,10 @@ PrefabInstance:
     - target: {fileID: 985250918923299557, guid: 869a8b89ac156bb4397b6ff8352b7fb9, type: 3}
       propertyPath: m_Name
       value: EnemySpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 985250918923299557, guid: 869a8b89ac156bb4397b6ff8352b7fb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 985250918923299558, guid: 869a8b89ac156bb4397b6ff8352b7fb9, type: 3}
       propertyPath: m_RootOrder
