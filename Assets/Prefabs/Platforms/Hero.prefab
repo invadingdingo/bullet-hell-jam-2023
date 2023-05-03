@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637865269754827}
   - component: {fileID: 4928637865269754826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
-  m_TagString: Dashable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637865906503140}
   - component: {fileID: 4928637865906503143}
-  m_Layer: 6
+  - component: {fileID: 2853683305568268737}
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,6 +184,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &2853683305568268737
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928637865906503141}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4928637866276783452
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +215,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637866276783455}
   - component: {fileID: 4928637866276783454}
-  m_Layer: 6
+  - component: {fileID: 7875326341856165885}
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,6 +264,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &7875326341856165885
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928637866276783452}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4928637866732951601
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +295,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637866732951600}
   - component: {fileID: 4928637866732951603}
-  m_Layer: 6
+  - component: {fileID: 7560360350462751321}
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,6 +344,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &7560360350462751321
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928637866732951601}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4928637867086191225
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +461,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637867277786571}
   - component: {fileID: 4928637867277786570}
-  m_Layer: 6
+  - component: {fileID: 6772709771274803232}
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,3 +510,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &6772709771274803232
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928637867277786568}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

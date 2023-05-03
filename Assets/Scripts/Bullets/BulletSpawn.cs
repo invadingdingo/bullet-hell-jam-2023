@@ -31,9 +31,7 @@ public class BulletSpawn : MonoBehaviour {
         }
     }
 
-    void OnColliderEnter2D(Collider2D other) {
-        Debug.Log("Trigger");
-        if (other.tag == "BulletBarrier")
-            Destroy(gameObject);
+    void OnTriggerEnter2D(Collider2D other) {
+        Destroy(gameObject);
     }
 }

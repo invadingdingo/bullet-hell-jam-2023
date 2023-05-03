@@ -24,7 +24,7 @@ public class CircleBulletPattern : MonoBehaviour {
 
     void Update() {
         // destroy when all bullets are destroyed
-        if (transform.childCount == 0) {
+        if (Orbit.childCount == 0) {
             Destroy(gameObject);
         }
 

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8428623641793651272}
   - component: {fileID: 7558893329724258713}
-  m_Layer: 6
+  - component: {fileID: 1232643986111791896}
+  m_Layer: 8
   m_Name: Border (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,6 +59,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1232643986111791896
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123664120396819193}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1500266935676056687
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +90,8 @@ GameObject:
   m_Component:
   - component: {fileID: 86192526091681983}
   - component: {fileID: 8008820911914746252}
-  m_Layer: 6
+  - component: {fileID: 5908953058830428946}
+  m_Layer: 8
   m_Name: Border (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +139,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &5908953058830428946
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500266935676056687}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3650279232629072651
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,9 +170,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6418232217343878615}
   - component: {fileID: 8465244464080504024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor (1)
-  m_TagString: Dashable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +228,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8999382546389206115}
   - component: {fileID: 7318404733756596377}
-  m_Layer: 6
+  - component: {fileID: 118022479384998761}
+  m_Layer: 8
   m_Name: Border (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,6 +277,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &118022479384998761
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927523337579531991}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4928637865269754824
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,9 +308,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637865269754827}
   - component: {fileID: 4928637865269754826}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
-  m_TagString: Dashable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,7 +438,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637866732951600}
   - component: {fileID: 4928637866732951603}
-  m_Layer: 6
+  - component: {fileID: 1725447829262343982}
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,6 +487,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1725447829262343982
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928637866732951601}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4928637867086191225
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +604,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4928637867277786571}
   - component: {fileID: 4928637867277786570}
-  m_Layer: 6
+  - component: {fileID: 3373283141164055046}
+  m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,6 +653,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &3373283141164055046
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928637867277786568}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6544271645034881100
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +684,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2406554937245502740}
   - component: {fileID: 4505451831493373432}
-  m_Layer: 6
+  - component: {fileID: 7884027375763116118}
+  m_Layer: 8
   m_Name: Border (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,6 +733,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &7884027375763116118
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6544271645034881100}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7670753630941321873
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +764,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1545662125715274050}
   - component: {fileID: 1094654822120789199}
-  m_Layer: 6
+  - component: {fileID: 5771489833555773870}
+  m_Layer: 8
   m_Name: Border (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,6 +813,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &5771489833555773870
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670753630941321873}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8629002568817828906
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +844,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8266845666166573601}
   - component: {fileID: 308998586426608953}
-  m_Layer: 6
+  - component: {fileID: 8858382138968583403}
+  m_Layer: 8
   m_Name: Border (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,3 +893,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &8858382138968583403
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8629002568817828906}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

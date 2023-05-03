@@ -3,24 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Dashable
-  - BulletBarrier
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
+  - 
+  - Platform
   - Wall
-  - Damaging
-  - BullletDespawn
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Player Bullet
+  - Enemy Bullet
+  - Level Edge
   - 
   - 
   - 

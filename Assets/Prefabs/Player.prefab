@@ -466,10 +466,10 @@ GameObject:
   - component: {fileID: 1635049209}
   - component: {fileID: 1686821527}
   - component: {fileID: 2685348197470258079}
-  - component: {fileID: 2355224476170641818}
   - component: {fileID: 4849313492223823078}
+  - component: {fileID: 2355224476170641818}
   - component: {fileID: 1635049208}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  rb: {fileID: 2355224476170641818}
   direction: {x: 0, y: 0}
   canDash: 1
   dashing: 0
@@ -565,6 +564,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pizza: {fileID: 6041281016079898370}
+--- !u!58 &4849313492223823078
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041281015289458382}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!50 &2355224476170641818
 Rigidbody2D:
   serializedVersion: 4
@@ -586,22 +601,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4849313492223823078
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6041281015289458382}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!82 &1635049208
 AudioSource:
   m_ObjectHideFlags: 0

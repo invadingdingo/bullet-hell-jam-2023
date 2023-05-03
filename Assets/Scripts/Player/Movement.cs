@@ -19,10 +19,19 @@ public class Movement : MonoBehaviour {
     [SerializeField] public bool mousePressed;
 
     private Rigidbody2D rb;
+    private int playerLayer;
+    private int wallLayer;
+    private int enemyBulletLayer;
+    private LayerMask platformLayerMask;
 
     void Start() {
         BeatManager.instance.AddQuarter(RechargeDash);
         rb = GetComponent<Rigidbody2D>();
+        playerLayer = LayerMask.NameToLayer("Player");
+        wallLayer = LayerMask.NameToLayer("Wall");
+        enemyBulletLayer = LayerMask.NameToLayer("Enemy Bullet");
+        platformLayerMask = LayerMask.GetMask("Platform");
+
         dashDistance = (dashDuration * dashPower);
     }
     void Update() {
@@ -55,30 +64,28 @@ public class Movement : MonoBehaviour {
             dashTimer = 0;
             rb.velocity = Vector2.zero;
 
-            Physics2D.IgnoreLayerCollision(3, 7, true); // Begin iFrames
+            // Begin iFrames
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, true); 
 
             // Raycast to see if there is a dashable platform.
             Collider2D hit = null;
         
             if (!Settings.instance.mouseDash) {
-                hit = Physics2D.OverlapCircle(transform.position + dashDistance * new Vector3(direction.x, direction.y, 0f).normalized, 0.1f);
+                hit = Physics2D.OverlapCircle(transform.position + dashDistance * new Vector3(direction.x, direction.y, 0f).normalized, 0.1f, platformLayerMask);
                 rb.velocity = direction * dashPower;
             } else {
-                hit = Physics2D.OverlapCircle(transform.position + dashDistance * (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized, 0.1f);
+                hit = Physics2D.OverlapCircle(transform.position + dashDistance * (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized, 0.1f, platformLayerMask);
                 rb.velocity = (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized * dashPower;
             }
 
             // If ray lands on dashable object, disable collision for walls.
             if (hit != null) {
-                if (hit.gameObject.tag == "Dashable") {
-                    Physics2D.IgnoreLayerCollision(3, 6, true); // Disable collision between Player (3) and Wall (6)
-                }
+                Physics2D.IgnoreLayerCollision(playerLayer, wallLayer, true);
             }
-
         } else if (dashing) { // While dashing...
             if (dashTimer > dashDuration) {
-                Physics2D.IgnoreLayerCollision(3, 6, false); // Reenable collision between Player (3) and Wall (6)
-                Physics2D.IgnoreLayerCollision(3, 7, false); // End iFrames
+                Physics2D.IgnoreLayerCollision(playerLayer, wallLayer, false);
+                Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, false); // End iFrames
                 dashing = false;
             } else {
                 dashTimer += Time.deltaTime;
