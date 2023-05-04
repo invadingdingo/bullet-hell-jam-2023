@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour {
 
     public void NextWave() {
         currentWave++;
-        if (currentWave <= waves.Count) {
+        if (currentWave + 1 <= waves.Count) {
             waves[currentWave].SetActive(true);
         } else {
             Debug.Log("Level Complete");

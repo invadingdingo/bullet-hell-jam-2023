@@ -10,12 +10,17 @@ public class EnemyHealth : MonoBehaviour {
     public Sprite LowDamageMask;
     public Sprite HighDamageMask;
 
+    public AudioClip killed;
+    public AudioClip hit;
+    private AudioSource aus;
+
     private SpriteMask spriteMask;
     private SpriteRenderer spriteRenderer;
     private float health;
     private Color originalColor;
 
     void Start() {
+        aus = GetComponent<AudioSource>();
         spriteMask = GetComponent<SpriteMask>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         health = MaxHealth;
@@ -31,7 +36,7 @@ public class EnemyHealth : MonoBehaviour {
         health -= 1f;
         if (health <= 0f) {
             // if no health, DIE
-            Destroy(gameObject);
+            StartCoroutine(Die());
         } else {
             // if has health, visualize it
             float damage = 1f - health / MaxHealth;
@@ -44,6 +49,21 @@ public class EnemyHealth : MonoBehaviour {
             } else {
                 spriteMask.enabled = false;
             }
+
+            aus.clip = hit;
+            aus.Play();
         }
+    }
+
+    IEnumerator Die() {
+        aus.clip = killed;
+        aus.Play();
+        // Disable enemy-ness
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<SpriteMask>().enabled = false;
+        transform.GetChild(0).gameObject.SetActive(false);
+        yield return new WaitForSeconds(killed.length);
+        Destroy(gameObject);
     }
 }
