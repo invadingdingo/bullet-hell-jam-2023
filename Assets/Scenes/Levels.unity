@@ -1465,6 +1465,7 @@ MonoBehaviour:
   sfxVolume: -5.9
   mouseDash: 0
   enemyCount: 0
+  levels: []
 --- !u!4 &488516979
 Transform:
   m_ObjectHideFlags: 0
@@ -1810,8 +1811,8 @@ Transform:
   - {fileID: 1233904906}
   - {fileID: 98909128}
   - {fileID: 811079969}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 743663335}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &643158503
 MonoBehaviour:
@@ -1945,6 +1946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1188369533}
+  - {fileID: 643158502}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4486,7 +4488,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0.14
+  weight: 0.204
   sharedProfile: {fileID: 11400000, guid: 184bda8a238d62148890dd1dfbf15fe7, type: 2}
 --- !u!4 &1900683658
 Transform:
