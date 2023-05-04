@@ -31,4 +31,8 @@ public class PauseMenu : MonoBehaviour {
         GameManager.instance.mouseDash = mouseDashToggle.isOn;
     }
 
+    public void Play() {
+        GameManager.instance.Play();
+    }
+
 }
