@@ -1363,6 +1363,7 @@ MonoBehaviour:
   sfxVolume: -20
   mouseDash: 0
   enemyCount: 0
+  levels: []
 --- !u!4 &488516979
 Transform:
   m_ObjectHideFlags: 0
