@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Main
+  m_Name: Particle
   m_Shader: {fileID: -6465566751694194690, guid: f641da2fd39e30542b99b6e8da59bd6d, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 6192944022281365145, guid: ce9572dfaee36fe48b295a9d4f76dda4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 09041ffd44d6fad4aa53a08622e6a1dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_0c376b3fcc824f7cbaf1a50aee21575f_Texture_1:
@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Bloom: 5.1
+    - _Bloom: 1
     - _Crack: 0
     m_Colors:
     - _Color: {r: 0.4950781, g: 0, b: 1, a: 0}

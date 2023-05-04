@@ -33,4 +33,10 @@ public class GameManager : MonoBehaviour {
         mx.SetFloat("SFX", sfxVolume);
     }
 
+    public List<GameObject> levels;
+
+    public void LevelComplete() {
+
+    }
+
 }

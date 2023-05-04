@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FindPlayer : MonoBehaviour {
-    private LayerMask playerFilter = 8;
+    [SerializeField] private LayerMask playerFilter;
     public Transform Find() {
         Collider2D hit = Physics2D.OverlapCircle(transform.position, 50f, playerFilter);
 

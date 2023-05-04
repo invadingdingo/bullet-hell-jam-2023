@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveManageer : MonoBehaviour {
+public class WaveManager : MonoBehaviour {
 
     [SerializeField] private List<GameObject> waves;
+    [SerializeField] private int currentWave;
 
     void Start() {
         foreach (Transform child in transform) {
@@ -13,12 +14,15 @@ public class WaveManageer : MonoBehaviour {
             waves.Add(child.gameObject); // Add wave to list.
         }
         waves[0].SetActive(true);
+        currentWave = 0;
     }
 
-    void Update() {
-        if (waves[0] == null) {
-            waves.RemoveAt(0);
-            waves[0].SetActive(true);
+    public void NextWave() {
+        currentWave++;
+        if (currentWave <= waves.Count) {
+            waves[currentWave].SetActive(true);
+        } else {
+            Debug.Log("Level Complete");
         }
     }
    

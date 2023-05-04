@@ -9,6 +9,7 @@ public class SpawnEntrance : MonoBehaviour {
     [SerializeField] private int nextSpawn;
     [SerializeField] private int enemyCount = 0;
     [SerializeField] private int spawnsRemaining = 0;
+    [SerializeField] private int currentSpawn = 0;
     [SerializeField] private int beatCount = 0;
 
     void Awake() {
@@ -26,6 +27,7 @@ public class SpawnEntrance : MonoBehaviour {
         }
 
         spawnsRemaining = enemies.Count;
+        currentSpawn = 0;
     }
 
     void Update() {
@@ -36,6 +38,7 @@ public class SpawnEntrance : MonoBehaviour {
         }
 
         if (spawnsRemaining == 0 && enemyCount == 0) {
+            transform.parent.GetComponent<WaveManager>().NextWave();
             Destroy(this.gameObject);
         }
 
@@ -44,11 +47,12 @@ public class SpawnEntrance : MonoBehaviour {
     void Spawn() {
         beatCount++;
         if (beatCount >= nextSpawn && spawnsRemaining != 0) { // If there are still enemies to spawn...
-            enemies[enemyCount].SetActive(true);
-            Destroy(spawnVisuals[enemyCount]);
+            enemies[currentSpawn].SetActive(true);
+            Destroy(spawnVisuals[currentSpawn]);
             enemyCount++;
             GameManager.instance.enemyCount = enemyCount;
             beatCount = 0;
+            currentSpawn++;
             spawnsRemaining -= 1;
         }
 
