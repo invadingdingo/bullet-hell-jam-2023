@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -37,6 +38,10 @@ public class GameManager : MonoBehaviour {
 
     public void LevelComplete() {
 
+    }
+
+    public void Play() {
+        SceneManager.LoadScene("Levels");
     }
 
 }
