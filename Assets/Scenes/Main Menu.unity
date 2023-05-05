@@ -1259,6 +1259,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2856369144312709027, guid: e129852724a46b24ba6417ff4a6c3b64, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856369144312709027, guid: e129852724a46b24ba6417ff4a6c3b64, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856369144312709027, guid: e129852724a46b24ba6417ff4a6c3b64, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856369144312709027, guid: e129852724a46b24ba6417ff4a6c3b64, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4928637867086191224, guid: e129852724a46b24ba6417ff4a6c3b64, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1713,7 +1729,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e57fe813ee65b3749b83789f40ec5159, type: 2}
@@ -2161,6 +2177,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cleveland Z
       objectReference: {fileID: 0}
+    - target: {fileID: 6598812349009987689, guid: f2025fb3a1902d244a00ca4da6b7666d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598812349009987689, guid: f2025fb3a1902d244a00ca4da6b7666d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598812349009987689, guid: f2025fb3a1902d244a00ca4da6b7666d, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598812349009987689, guid: f2025fb3a1902d244a00ca4da6b7666d, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2025fb3a1902d244a00ca4da6b7666d, type: 3}
 --- !u!1001 &1699332580
@@ -2225,6 +2257,22 @@ PrefabInstance:
     - target: {fileID: 4928637867086191225, guid: d44c3b86a1d55804792dffa1ff7a100c, type: 3}
       propertyPath: m_Name
       value: Ricky
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620058797739571375, guid: d44c3b86a1d55804792dffa1ff7a100c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620058797739571375, guid: d44c3b86a1d55804792dffa1ff7a100c, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620058797739571375, guid: d44c3b86a1d55804792dffa1ff7a100c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620058797739571375, guid: d44c3b86a1d55804792dffa1ff7a100c, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d44c3b86a1d55804792dffa1ff7a100c, type: 3}
