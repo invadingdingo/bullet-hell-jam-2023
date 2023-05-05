@@ -16,13 +16,9 @@ public class BeatCounter : MonoBehaviour {
 	
 	void Awake () {
 		// Calculate number of samples between each beat.
-		float audioBpm = audioSource.GetComponent<BeatSynchronizer>().bpm;
+		float audioBpm = audioSource.GetComponent<BeatSynchronizer>().bpm; // A BPM value attached to the audio source.
 		samplePeriod = (60f / (audioBpm * BeatDecimalValues.values[(int)beatValue])) * audioSource.clip.frequency;
 		nextBeatSample = 0f;
-	}
-
-	void Start () {
-		
 	}
 
 	void StartBeatCheck (double syncTime) {
@@ -31,11 +27,11 @@ public class BeatCounter : MonoBehaviour {
 	}
 	
 	void OnEnable () {
-		BeatSynchronizer.OnAudioStart += StartBeatCheck;
+		BeatSynchronizer.instance.OnAudioStart += StartBeatCheck;
 	}
 
 	void OnDisable () {
-		BeatSynchronizer.OnAudioStart -= StartBeatCheck;
+		BeatSynchronizer.instance.OnAudioStart -= StartBeatCheck;
 	}
 
 	IEnumerator BeatCheck () {
@@ -43,7 +39,7 @@ public class BeatCounter : MonoBehaviour {
 			currentSample = (float)AudioSettings.dspTime * audioSource.clip.frequency;
 			
 			if (currentSample >= (nextBeatSample + sampleOffset)) {
-				BeatManager.instance.BeatEvent(beatValue);
+				BeatManager.instance.BeatEvent(beatValue); // Send out beat signal to BeatManager.
 				nextBeatSample += samplePeriod;
 			}
 

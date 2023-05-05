@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
             Destroy(this); 
         } else { 
             instance = this; 
-            DontDestroyOnLoad(instance);
+            DontDestroyOnLoad(instance.gameObject);
         } 
     }
 
@@ -35,14 +35,37 @@ public class GameManager : MonoBehaviour {
         mx.SetFloat("SFX", sfxVolume);
     }
 
+    public void Play() {
+        SceneManager.LoadScene("Levels");
+    }
+
+    public void MainMenu() {
+        SceneManager.LoadScene("Main Menu");
+        ResetValues();
+    }
+
+    public void GameOver() {
+        Time.timeScale = 0f;
+        FindObjectOfType<GameOver>().gameObject.transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    public void Retry() {
+        SceneManager.LoadScene("Levels");
+        ResetValues();
+    }
+
+    public void ResetValues() {
+        Time.timeScale = 1f;
+        enemyCount = 0;
+    }
+
     public List<GameObject> levels;
 
     public void LevelComplete() {
 
     }
 
-    public void Play() {
-        SceneManager.LoadScene("Levels");
-    }
+
+
 
 }

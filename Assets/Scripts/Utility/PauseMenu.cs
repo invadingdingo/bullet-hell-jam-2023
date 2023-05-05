@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour {
 
     [Header("Gameplay")]
     public Toggle mouseDashToggle;
-    void OnEnable() {
+    void Start() {
         musicVolumeSlider.value = GameManager.instance.musicVolume;
         sfxVolumeSlider.value = GameManager.instance.sfxVolume;
         mouseDashToggle.isOn = GameManager.instance.mouseDash;

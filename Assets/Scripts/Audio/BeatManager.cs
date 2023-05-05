@@ -9,11 +9,7 @@ public class BeatManager : MonoBehaviour {
 	public event OnBeatEventHandler OnQuarterBeatEvent;
     public event OnBeatEventHandler OnTripletBeatEvent;
     void Awake() {
-        if (instance != null && instance != this) { 
-            Destroy(this); 
-        } else { 
-            instance = this; 
-        } 
+        instance = this;
     }
 
     public void AddTriplet(OnBeatEventHandler listener) {
@@ -34,6 +30,7 @@ public class BeatManager : MonoBehaviour {
 
     public void BeatEvent(BeatValue beat) {
         if (beat == BeatValue.QuarterBeat) {
+            //Debug.Log("Beat");
             if (OnQuarterBeatEvent != null)
                 OnQuarterBeatEvent();
         } else if (beat == BeatValue.Triplet) {

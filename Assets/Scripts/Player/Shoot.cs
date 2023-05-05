@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour {
 
-    private AudioSource audio;
-
     public StraightBullet Bullet;
     public GameObject[] spawnPoint;
     private Transform currentSpawn;
@@ -14,7 +12,6 @@ public class Shoot : MonoBehaviour {
     private bool shootRight;
     
     void Start() {
-        audio = GetComponent<AudioSource>();
         BeatManager.instance.AddTriplet(Fire);
     }
 
@@ -36,8 +33,8 @@ public class Shoot : MonoBehaviour {
                 speed: bulletSpeed
             );
 
-            audio.Stop();
-            audio.Play();
+            GetComponent<AudioSource>().Stop();
+            GetComponent<AudioSource>().Play();
         }
     }
 }
