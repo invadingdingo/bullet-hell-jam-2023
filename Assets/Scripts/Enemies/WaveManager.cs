@@ -25,5 +25,4 @@ public class WaveManager : MonoBehaviour {
             Debug.Log("Level Complete");
         }
     }
-   
 }
