@@ -42,7 +42,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     public void RemoveHealth(int h = 1) {
-        if (health - h >= 0) {
+        if (health - h > 0) {
             health -= h;
             UpdateSlices();
         } else {
