@@ -38,6 +38,10 @@ public class PlayerHealth : MonoBehaviour {
             health = maxHealth;
         }
 
+        Tween.Animate(this, 0f, 1f, 1f, Tween.EaseIn, c => {
+            spriteRenderer.color = Color.Lerp(new Color(0, 1f, 0.3f), originalColor, c);
+        });
+
         UpdateSlices();
     }
 

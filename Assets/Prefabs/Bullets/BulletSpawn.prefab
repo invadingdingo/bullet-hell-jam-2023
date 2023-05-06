@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0bf6efe4e89334083c197bf0d38854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPattern: {fileID: 557779754845061015, guid: 345c6be0544fdbd41a17920f891df723, type: 3}
+  BulletPattern: {fileID: 5672823108367609806, guid: 528961dfd58948a4eadc9b1f1f2012a3, type: 3}
   BulletPrefab: {fileID: 1074219848341724951, guid: 289093200f3301e46aa3ba36eff89d43, type: 3}
-  BulletSpawnDelay: 0.2
+  BulletSpawnDelay: 2
 --- !u!1 &4585694979281957780
 GameObject:
   m_ObjectHideFlags: 0

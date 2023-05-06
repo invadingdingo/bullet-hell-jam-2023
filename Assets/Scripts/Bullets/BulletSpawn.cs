@@ -3,30 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletSpawn : MonoBehaviour {
-    public SingleBulletPattern BulletPattern;
+    public RadialBulletPattern BulletPattern;
     public GameObject BulletPrefab;
-    public float BulletSpawnDelay = 0.2f;
+    public int BulletSpawnDelay = 2;
 
-    private float time;
+    private int beats;
 
     void Start() {
-        time = BulletSpawnDelay;
+        beats = BulletSpawnDelay;
+        BeatManager.instance.AddQuarter(Fire);
+    }
+
+    void OnDestroy() {
+        BeatManager.instance.RemoveQuarter(Fire);
     }
 
     void Update() {
-        // spawn
-        if (time > 0) {
-            time -= Time.deltaTime;
-        } else {
-            time = BulletSpawnDelay;
+        // rotate sprite
+        transform.Rotate(0, 0, -45f * Time.deltaTime);
+    }
+
+    void Fire() {
+        beats--;
+        if (beats <= 0) {
+            beats = BulletSpawnDelay;
 
             // spawn bullets
-            SingleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
+            RadialBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
 
             pattern.Spawn(
                 prefab: BulletPrefab,
-                direction: Random.insideUnitCircle.normalized,
-                speed: 20f
+                count: 4,
+                radius: 0.1f,
+                speed: 20f,
+                rotationOffset: (transform.rotation.eulerAngles.z + 15f) * Mathf.Deg2Rad
             );
         }
     }

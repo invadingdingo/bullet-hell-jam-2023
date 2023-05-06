@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPattern: {fileID: 1251357905180420220, guid: 2f3bf59d41c30bb42b57f5135d5c4950, type: 3}
   BulletPrefab: {fileID: 1074219848341724951, guid: 289093200f3301e46aa3ba36eff89d43, type: 3}
-  BulletSpawnDelay: 2
+  BulletSpawnDelay: 3
   EyeTransform: {fileID: 5017291936286235445}
   PlayerTransform: {fileID: 0}
 --- !u!114 &768885027
@@ -208,9 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90c3ed10afc4bc4c8dee60a7102ee41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerFilter:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!114 &8720013320047992558
 MonoBehaviour:
   m_ObjectHideFlags: 0
