@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour {
-
-    public StraightBullet Bullet;
+    public SingleBulletPattern BulletPattern;
+    public GameObject BulletPrefab;
     public GameObject[] spawnPoint;
-    private Transform currentSpawn;
-
     public float bulletSpeed;
+    public AudioClip ShootAudio;
+
+    private Transform currentSpawn;
     private bool shootRight;
     
     void Start() {
@@ -26,15 +27,15 @@ public class Shoot : MonoBehaviour {
 
             shootRight = !shootRight;
 
-            StraightBullet pattern = Instantiate(Bullet, currentSpawn.position, Quaternion.identity);
+            SingleBulletPattern pattern = Instantiate(BulletPattern, currentSpawn.position, Quaternion.identity);
 
             pattern.Spawn(
+                prefab: BulletPrefab,
                 direction: (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized,
                 speed: bulletSpeed
             );
 
-            GetComponent<AudioSource>().Stop();
-            GetComponent<AudioSource>().Play();
+            GameManager.instance.PlaySfx(ShootAudio);
         }
     }
 }

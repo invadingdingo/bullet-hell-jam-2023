@@ -5,10 +5,9 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-
     public static GameManager instance;
-
     public AudioMixer mx;
+    public SfxPlayer SfxPlayerPrefab;
 
     [Header("Volume")]
     [Range(-20, 0)]
@@ -18,8 +17,8 @@ public class GameManager : MonoBehaviour {
 
     [Header("Gameplay")]
     public bool mouseDash = false;
-
     public int enemyCount = 0;
+    public List<GameObject> levels;
 
     void Awake() {
         if (instance != null && instance != this) { 
@@ -59,13 +58,12 @@ public class GameManager : MonoBehaviour {
         enemyCount = 0;
     }
 
-    public List<GameObject> levels;
-
     public void LevelComplete() {
 
     }
 
-
-
-
+    public void PlaySfx(AudioClip clip) {
+        SfxPlayer sfx = Instantiate(SfxPlayerPrefab);
+        sfx.Play(clip);
+    }
 }

@@ -11,7 +11,8 @@ public class SingleBulletPattern : MonoBehaviour {
         this.direction = direction;
 
         // spawn bullet
-        Instantiate(prefab, transform);
+        GameObject bullet = Instantiate(prefab, transform);
+        bullet.transform.Rotate(0, 0, Vector3.SignedAngle(Vector3.up, direction, Vector3.forward));
     }
 
     void Update() {

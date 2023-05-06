@@ -16,9 +16,8 @@ public class EnemyCircle : MonoBehaviour {
     }
 
     void Update() {
-
         if (PlayerTransform == null) {
-            PlayerTransform = GetComponent<FindPlayer>().Find();
+            PlayerTransform = GetComponent<FindPlayer>().Find().transform;
         } else {
             Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
 
