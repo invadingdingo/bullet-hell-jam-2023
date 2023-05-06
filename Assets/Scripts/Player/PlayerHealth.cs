@@ -26,9 +26,13 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, true);
-        invulnerableBeats = 6;
-        RemoveHealth();
+        // Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, true);
+        if (!invulnerable) {
+            invulnerable = true;
+            GameManager.instance.mx.SetFloat("LowPass", 500); // Dampen audio.
+            invulnerableBeats = 6;
+            RemoveHealth();
+        }
     }
 
     public void AddHealth(int h = 1) {
@@ -70,25 +74,13 @@ public class PlayerHealth : MonoBehaviour {
                 spriteRenderer.color = Color.Lerp(Color.black, originalColor, c);
             });
             invulnerableBeats--;
-        } else {
-            Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, false);
+        } else if (invulnerableBeats > -1) {
+            Tween.Animate(this, 300f, 220000f, 0.2f, Tween.EaseIn, c => {
+                GameManager.instance.mx.SetFloat("LowPass", c); // Fix audio.
+            });
+            invulnerable = false;
+            // Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, false);
+            invulnerableBeats--; //Just so this only plays once.
         }
-    }
-
-    IEnumerator Invulnerable() {
-        Color prev = GetComponentInChildren<SpriteRenderer>().color; // Save color
-
-        for (int c = 0; c < 20; c++) {
-            if (c % 2 == 0) 
-                GetComponentInChildren<SpriteRenderer>().color = prev;
-            else 
-                GetComponentInChildren<SpriteRenderer>().color = Color.white;
-
-            yield return new WaitForSeconds(invulnerableTime/20);
-        }
-
-        invulnerable = false;
-        GetComponentInChildren<SpriteRenderer>().color = prev; // Turn color back
-        yield return null;
     }
 }

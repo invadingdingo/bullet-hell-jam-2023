@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour {
     [SerializeField] private float dashBeatCooldown;
     [SerializeField] private float dashBeatCooldownCount;
     [SerializeField] private float dashDistance;
+    [SerializeField] private GameObject dashClone;
     [SerializeField] public bool mousePressed;
 
     private Rigidbody2D rb;
@@ -64,6 +65,9 @@ public class Movement : MonoBehaviour {
             dashTimer = 0;
             rb.velocity = Vector2.zero;
 
+            // Begin clone spawning coroutine
+            StartCoroutine(Dashing());
+
             // Begin iFrames
             Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, true); 
 
@@ -104,4 +108,13 @@ public class Movement : MonoBehaviour {
         }
     }
 
+    IEnumerator Dashing() {
+
+        for(int c = 0; c < 4; c++) {
+            Instantiate(dashClone, transform.position, transform.rotation);
+            yield return new WaitForSeconds(dashDuration/4);
+        }
+
+        yield return null;
+    }
 }

@@ -44,8 +44,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
-        Time.timeScale = 0f;
+        mx.SetFloat("LowPass", 22000); // Fix audio.
+        //Time.timeScale = 0f;
         FindObjectOfType<GameOver>().gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        Destroy(FindObjectOfType<PlayerHealth>().gameObject);
     }
 
     public void Retry() {

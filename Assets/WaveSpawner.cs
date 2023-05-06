@@ -33,6 +33,7 @@ public class WaveSpawner : MonoBehaviour {
 
             GameObject spawnVisual = Instantiate(SpawnVisualPrefab, child.transform.position, Quaternion.identity);
             spawnVisuals.Add(spawnVisual);
+            GameManager.instance.enemyCount++;
         }
 
         wave.SetActive(true);
