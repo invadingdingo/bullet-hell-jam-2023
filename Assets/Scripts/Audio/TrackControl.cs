@@ -7,7 +7,7 @@ public class TrackControl : MonoBehaviour {
     public AudioSource[] sources;
     public bool[] playing;
 
-    [Range(0, 4)]
+    [Range(0, 5)]
     public int enemyCount;
     private int prevEnemyCount;
     public float maxVolume;

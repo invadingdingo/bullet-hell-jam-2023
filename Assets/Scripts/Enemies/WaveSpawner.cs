@@ -60,6 +60,7 @@ public class WaveSpawner : MonoBehaviour {
             if (currentWave + 1 < waves.Count) {
                 StartWave(currentWave + 1);
             } else {
+                GameManager.instance.LevelComplete();
                 Debug.Log("Level Complete");
             }
         }

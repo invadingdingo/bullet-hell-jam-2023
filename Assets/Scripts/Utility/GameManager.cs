@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     public AudioMixer mx;
     public SfxPlayer SfxPlayerPrefab;
 
+    public GameObject levelComplete;
+
     [Header("Volume")]
     [Range(-20, 0)]
     public float musicVolume = -10f;
@@ -18,7 +20,6 @@ public class GameManager : MonoBehaviour {
     [Header("Gameplay")]
     public bool mouseDash = false;
     public int enemyCount = 0;
-    public List<GameObject> levels;
 
     void Awake() {
         if (instance != null && instance != this) { 
@@ -35,11 +36,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Play() {
-        SceneManager.LoadScene("Levels");
+        LoadScene(1);
     }
 
     public void MainMenu() {
-        SceneManager.LoadScene("Main Menu");
+        LoadScene(0);
         ResetValues();
     }
 
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Retry() {
-        SceneManager.LoadScene("Levels");
+        LoadScene(SceneManager.GetActiveScene().buildIndex);
         ResetValues();
     }
 
@@ -61,11 +62,30 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LevelComplete() {
-
+        StartCoroutine(LevelCompleteSequence());
     }
 
+    IEnumerator LevelCompleteSequence() {
+        yield return new WaitForSeconds(1);
+        Instantiate(levelComplete, new Vector3(0, 0, 0), Quaternion.identity);
+        yield return new WaitForSeconds(2);
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void PlaySfx(AudioClip clip) {
         SfxPlayer sfx = Instantiate(SfxPlayerPrefab);
         sfx.Play(clip);
+    }
+    
+
+    public void LoadScene(int sceneId) {
+        StartCoroutine(LoadSceneAsync(sceneId));
+    }
+
+    IEnumerator LoadSceneAsync(int sceneId) {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+
+        while(!operation.isDone) {
+            yield return null;
+        }
     }
 }
