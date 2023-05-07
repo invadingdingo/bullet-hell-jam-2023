@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public SfxPlayer SfxPlayerPrefab;
 
     public GameObject levelComplete;
+    private bool transition = false; 
 
     [Header("Volume")]
     [Range(-20, 0)]
@@ -62,14 +63,18 @@ public class GameManager : MonoBehaviour {
     }
 
     public void LevelComplete() {
-        StartCoroutine(LevelCompleteSequence());
+        if (!transition)
+            StartCoroutine(LevelCompleteSequence());
     }
 
     IEnumerator LevelCompleteSequence() {
-        yield return new WaitForSeconds(1);
+        transition = true;
+        yield return new WaitForSeconds(1f);
         Instantiate(levelComplete, new Vector3(0, 0, 0), Quaternion.identity);
-        yield return new WaitForSeconds(2);
-        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        yield return new WaitForSeconds(2f);
+        transition = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
     public void PlaySfx(AudioClip clip) {
         SfxPlayer sfx = Instantiate(SfxPlayerPrefab);
