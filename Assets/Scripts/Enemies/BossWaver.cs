@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossTwins : MonoBehaviour {
-    public CircleBulletPattern BulletPattern;
+public class BossWaver : MonoBehaviour {
+    public RadialBulletPattern BulletPattern;
     public GameObject BulletPrefab;
-    public int BulletSpawnDelay = 1;
+    public int BulletSpawnDelay = 0;
     public float MoveScale = 7f;
-    public float MoveSpeed = 30f;
-    public float MoveOffset = 0f;
-    public Vector3 MoveOffsetDir = Vector3.down;
+    public float MoveSpeed = 10f;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
@@ -37,10 +35,9 @@ public class BossTwins : MonoBehaviour {
         EyeTransform.position = transform.position + DirToPlayer() * 0.3f;
 
         // move enemy
-        Vector3 offset = MoveOffsetDir * MoveScale;
-        Quaternion rot = Quaternion.Euler(0f, 0f, 90f);
-        transform.position = startPosition + offset + rot * Polar.Line(MoveScale, moveAngle + MoveOffset);
-        moveAngle += MoveSpeed * Time.deltaTime;
+        Vector3 offset = Vector3.left * MoveScale;
+        transform.position = startPosition + offset + Polar.Circle(MoveScale, moveAngle);
+        moveAngle -= MoveSpeed * Time.deltaTime;
     }
 
     void Fire() {
@@ -54,15 +51,14 @@ public class BossTwins : MonoBehaviour {
             });
 
             // spawn bullets
-            CircleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
+            RadialBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
 
             pattern.Spawn(
                 prefab: BulletPrefab,
-                count: 10,
+                count: 12,
                 radius: 3f,
-                direction: DirToPlayer(),
-                speed: 20f
-                // rotationOffset: transform.rotation.eulerAngles.z + 15f
+                speed: 20f,
+                rotationOffset: transform.rotation.eulerAngles.z + 15f
             );
         }
     }
@@ -80,10 +76,9 @@ public class BossTwins : MonoBehaviour {
         int points = 100;
         float interval = 360f / points;
         for (int i = 0; i < points; i++) {
-            Vector3 offset = MoveOffsetDir * MoveScale;
-            Quaternion rot = Quaternion.Euler(0f, 0f, 90f);
-            Vector3 p0 = offset + transform.position + rot * Polar.Line(MoveScale, interval * i + MoveOffset);
-            Vector3 p1 = offset + transform.position + rot * Polar.Line(MoveScale, interval * (i + 1) + MoveOffset);
+            Vector3 offset = Vector3.left * MoveScale;
+            Vector3 p0 = offset + transform.position + Polar.Circle(MoveScale, interval * i);
+            Vector3 p1 = offset + transform.position + Polar.Circle(MoveScale, interval * (i + 1));
             Gizmos.DrawLine(p0, p1);
         }
     }

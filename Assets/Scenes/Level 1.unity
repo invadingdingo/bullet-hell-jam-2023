@@ -1992,14 +1992,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8833500271758937896, guid: 5c1776cbfac8a4041b61189ab4d50c32, type: 3}
-      propertyPath: MoveOffset
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 8833500271758937896, guid: 5c1776cbfac8a4041b61189ab4d50c32, type: 3}
-      propertyPath: MoveOffsetDir.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c1776cbfac8a4041b61189ab4d50c32, type: 3}
 --- !u!4 &694887858 stripped
@@ -5396,6 +5388,14 @@ PrefabInstance:
     - target: {fileID: 985250918923299558, guid: 5c1776cbfac8a4041b61189ab4d50c32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833500271758937896, guid: 5c1776cbfac8a4041b61189ab4d50c32, type: 3}
+      propertyPath: MoveOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833500271758937896, guid: 5c1776cbfac8a4041b61189ab4d50c32, type: 3}
+      propertyPath: MoveOffsetDir.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c1776cbfac8a4041b61189ab4d50c32, type: 3}
