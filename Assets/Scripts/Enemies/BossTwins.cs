@@ -62,7 +62,6 @@ public class BossTwins : MonoBehaviour {
                 radius: 3f,
                 direction: DirToPlayer(),
                 speed: 20f
-                // rotationOffset: transform.rotation.eulerAngles.z + 15f
             );
         }
     }
