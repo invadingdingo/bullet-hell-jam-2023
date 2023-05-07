@@ -33,7 +33,8 @@ public class Movement : MonoBehaviour {
         enemyBulletLayer = LayerMask.NameToLayer("Enemy Bullet");
         platformLayerMask = LayerMask.GetMask("Platform");
 
-        dashDistance = (dashDuration * dashPower);
+        dashPower = dashDistance / dashDuration;
+        // dashDistance = (dashDuration * dashPower);
     }
     void Update() {
         if (!dashing)
@@ -90,6 +91,7 @@ public class Movement : MonoBehaviour {
             if (dashTimer > dashDuration) {
                 Physics2D.IgnoreLayerCollision(playerLayer, wallLayer, false);
                 Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, false); // End iFrames
+                canDash = true;
                 dashing = false;
             } else {
                 dashTimer += Time.deltaTime;
