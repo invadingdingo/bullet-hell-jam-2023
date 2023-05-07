@@ -51,7 +51,7 @@ public class EnemyRadial : MonoBehaviour {
                 count: 6,
                 radius: 3f,
                 speed: 20f,
-                rotationOffset: (transform.rotation.eulerAngles.z + 15f) * Mathf.Deg2Rad
+                rotationOffset: (transform.rotation.eulerAngles.z + 15f)
             );
         }
     }

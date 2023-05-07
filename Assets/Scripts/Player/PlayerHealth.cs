@@ -27,14 +27,16 @@ public class PlayerHealth : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         // Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, true);
-        if (!invulnerable) {
-            invulnerable = true;
-            GameManager.instance.mx.SetFloat("LowPass", 500); // Dampen audio.
-            Tween.Animate(this, 1f, 0f, 1f, Tween.EaseIn, c => {
-                GameManager.instance.mx.SetFloat("Distortion", c); // Fix audio.
-            });
-            invulnerableBeats = 6;
-            RemoveHealth();
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy Bullet")) {
+            if (!invulnerable) {
+                invulnerable = true;
+                GameManager.instance.mx.SetFloat("LowPass", 500); // Dampen audio.
+                Tween.Animate(this, 1f, 0f, 1f, Tween.EaseIn, c => {
+                    GameManager.instance.mx.SetFloat("Distortion", c); // Fix audio.
+                });
+                invulnerableBeats = 6;
+                RemoveHealth();
+            }
         }
     }
 

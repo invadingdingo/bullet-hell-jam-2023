@@ -12,7 +12,7 @@ public class RadialBulletPattern : MonoBehaviour {
         float interval = 360f / count;
         for (int i = 0; i < count; i++) {
             GameObject bullet = Instantiate(prefab, transform);
-            bullet.transform.Translate(Polar.Circle(radius, interval * i));
+            bullet.transform.Translate(Polar.Circle(radius, rotationOffset + interval * i));
         }
     }
 

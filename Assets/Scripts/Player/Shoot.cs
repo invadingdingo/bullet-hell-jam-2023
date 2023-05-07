@@ -11,31 +11,51 @@ public class Shoot : MonoBehaviour {
 
     private Transform currentSpawn;
     private bool shootRight;
+
+    public bool canShoot = false;
+    public LayerMask shootable;
     
     void Start() {
+        shootable = LayerMask.NameToLayer("Platform");
+        Debug.Log(shootable);
         BeatManager.instance.AddTriplet(Fire);
     }
 
+    void OnTriggerEnter2D(Collider2D other) {
+        Debug.Log("here");
+        if (other.gameObject.layer == shootable)
+            canShoot = true;
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        Debug.Log("not here");
+        if(other.gameObject.layer == shootable)
+            canShoot = false;
+    }
+
     void Fire() {
-        if (Input.GetButton("Fire")) {
 
-            if (shootRight) {
-                currentSpawn = spawnPoint[0].transform;
-            } else {
-                currentSpawn = spawnPoint[1].transform;
+        if (canShoot) {
+            if (Input.GetButton("Fire")) {
+
+                if (shootRight) {
+                    currentSpawn = spawnPoint[0].transform;
+                } else {
+                    currentSpawn = spawnPoint[1].transform;
+                }
+
+                shootRight = !shootRight;
+
+                SingleBulletPattern pattern = Instantiate(BulletPattern, currentSpawn.position, Quaternion.identity);
+
+                pattern.Spawn(
+                    prefab: BulletPrefab,
+                    direction: (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized,
+                    speed: bulletSpeed
+                );
+
+                GameManager.instance.PlaySfx(ShootAudio);
             }
-
-            shootRight = !shootRight;
-
-            SingleBulletPattern pattern = Instantiate(BulletPattern, currentSpawn.position, Quaternion.identity);
-
-            pattern.Spawn(
-                prefab: BulletPrefab,
-                direction: (Quaternion.Euler(0, 0, transform.eulerAngles.z + 90f) * Vector3.right).normalized,
-                speed: bulletSpeed
-            );
-
-            GameManager.instance.PlaySfx(ShootAudio);
         }
     }
 }
