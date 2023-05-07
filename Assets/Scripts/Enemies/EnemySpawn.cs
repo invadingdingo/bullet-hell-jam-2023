@@ -14,17 +14,24 @@ public class EnemySpawn : MonoBehaviour {
     private int beats;
     private Vector3 startPosition;
     private float moveAngle;
+    private List<SingleBulletPattern> bullets;
 
     void Start() {
         beats = 0;
         startPosition = transform.position;
         moveAngle = 0f;
         PlayerTransform = GetComponent<FindPlayer>().Find().transform;
+        bullets = new List<SingleBulletPattern>();
         BeatManager.instance.AddQuarter(Fire);
     }
 
     void OnDestroy() {
         BeatManager.instance.RemoveQuarter(Fire);
+        foreach (SingleBulletPattern bullet in bullets) {
+            if (bullet) {
+                Destroy(bullet.transform.gameObject);
+            }
+        }
     }
 
     void Update() {
@@ -52,6 +59,7 @@ public class EnemySpawn : MonoBehaviour {
 
             // spawn bullets
             SingleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
+            bullets.Add(pattern);
 
             pattern.Spawn(
                 prefab: BulletPrefab,
