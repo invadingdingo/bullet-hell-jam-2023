@@ -194,6 +194,8 @@ MonoBehaviour:
   BulletPattern: {fileID: 1251357905180420220, guid: 2f3bf59d41c30bb42b57f5135d5c4950, type: 3}
   BulletPrefab: {fileID: 1074219848341724951, guid: 289093200f3301e46aa3ba36eff89d43, type: 3}
   BulletSpawnDelay: 3
+  MoveRadius: 10
+  MoveSpeed: 30
   EyeTransform: {fileID: 5017291936286235445}
   PlayerTransform: {fileID: 0}
 --- !u!114 &768885027

@@ -37,7 +37,8 @@ public static class Polar {
     }
 
     public static Vector3 Line(float scale, float angle) {
-        Vector3 square = Square(scale, angle);
-        return new Vector3(square.x, 0f, 0f);
+        float t = Mathf.Deg2Rad * angle;
+        float x = scale * Mathf.Cos(t);
+        return new Vector3(x, 0f, 0f);
     }
 }
