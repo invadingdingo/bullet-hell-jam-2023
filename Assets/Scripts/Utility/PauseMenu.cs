@@ -11,6 +11,10 @@ public class PauseMenu : MonoBehaviour {
 
     [Header("Gameplay")]
     public Toggle mouseDashToggle;
+
+    public AudioClip play;
+    public bool inRoutine = false;
+
     void Start() {
         musicVolumeSlider.value = GameManager.instance.musicVolume;
         sfxVolumeSlider.value = GameManager.instance.sfxVolume;
@@ -32,7 +36,16 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void Play() {
+        if (!inRoutine)
+            StartCoroutine(PlayAudio());
+    }
+
+    IEnumerator PlayAudio() {
+        inRoutine = true;
+        GameManager.instance.PlaySfx(play);
+        yield return new WaitForSeconds(play.length);
         GameManager.instance.Play();
+        inRoutine = false;
     }
 
 }

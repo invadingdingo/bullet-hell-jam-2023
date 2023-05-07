@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver() {
         mx.SetFloat("LowPass", 22000); // Fix audio.
-        //Time.timeScale = 0f;
         FindObjectOfType<GameOver>().gameObject.transform.GetChild(0).gameObject.SetActive(true);
         Destroy(FindObjectOfType<PlayerHealth>().gameObject);
     }
@@ -64,8 +63,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ResetValues() {
-        Time.timeScale = 1f;
         waveCount = 0;
+        mx.SetFloat("LowPass", 22000); // Fix audio.
     }
 
     public void LevelComplete() {
@@ -79,7 +78,7 @@ public class GameManager : MonoBehaviour {
         Instantiate(levelComplete, new Vector3(0, 0, 0), Quaternion.identity);
         yield return new WaitForSeconds(2f);
         transition = false;
-        waveCount = 0;
+        ResetValues();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
     }
