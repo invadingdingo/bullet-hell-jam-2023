@@ -194,7 +194,7 @@ MonoBehaviour:
   LowDamageMask: {fileID: 21300000, guid: 6235bca175fb6ac4f9399e8f37e2b17c, type: 3}
   HighDamageMask: {fileID: 21300000, guid: 9f1101cae86935f429f2c812024d460b, type: 3}
   HitAudio: {fileID: 8300000, guid: f47002e303e1886428d1e12737fa985a, type: 3}
-  KilledAudio: {fileID: 8300000, guid: 6fa3af5ed05688849a5b353952214603, type: 3}
+  KilledAudio: {fileID: 8300000, guid: f59069e725880244e987e959421813a6, type: 3}
 --- !u!114 &7257841499528835436
 MonoBehaviour:
   m_ObjectHideFlags: 0

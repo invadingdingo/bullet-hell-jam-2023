@@ -38,6 +38,12 @@ public class GameManager : MonoBehaviour {
 
     public void Play() {
         LoadScene(1);
+        StartCoroutine(Wait());
+
+    }
+
+    IEnumerator Wait() {
+        yield return new WaitForSeconds(1);
     }
 
     public void MainMenu() {
