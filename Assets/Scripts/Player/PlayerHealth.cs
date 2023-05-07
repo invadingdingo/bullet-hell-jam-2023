@@ -30,6 +30,9 @@ public class PlayerHealth : MonoBehaviour {
         if (!invulnerable) {
             invulnerable = true;
             GameManager.instance.mx.SetFloat("LowPass", 500); // Dampen audio.
+            Tween.Animate(this, 1f, 0f, 1f, Tween.EaseIn, c => {
+                GameManager.instance.mx.SetFloat("Distortion", c); // Fix audio.
+            });
             invulnerableBeats = 6;
             RemoveHealth();
         }

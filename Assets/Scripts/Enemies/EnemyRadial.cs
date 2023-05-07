@@ -6,6 +6,8 @@ public class EnemyRadial : MonoBehaviour {
     public RadialBulletPattern BulletPattern;
     public GameObject BulletPrefab;
     public int BulletSpawnDelay = 1;
+    public float MoveScale = 7f;
+    public float MoveSpeed = 5f;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
@@ -51,6 +53,17 @@ public class EnemyRadial : MonoBehaviour {
                 speed: 20f,
                 rotationOffset: (transform.rotation.eulerAngles.z + 15f) * Mathf.Deg2Rad
             );
+        }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.yellow;
+        int points = 100;
+        float interval = 360f / points;
+        for (int i = 0; i < points; i++) {
+            Vector3 p0 = transform.position + Polar.Flower(MoveScale, interval * i);
+            Vector3 p1 = transform.position + Polar.Flower(MoveScale, interval * (i + 1));
+            Gizmos.DrawLine(p0, p1);
         }
     }
 }

@@ -9,12 +9,10 @@ public class RadialBulletPattern : MonoBehaviour {
         this.speed = speed;
 
         // spawn bullets in circle
-        float interval = (Mathf.PI * 2.0f) / count;
+        float interval = 360f / count;
         for (int i = 0; i < count; i++) {
-            float x = radius * Mathf.Cos(interval * i + rotationOffset);
-            float y = radius * Mathf.Sin(interval * i + rotationOffset);
             GameObject bullet = Instantiate(prefab, transform);
-            bullet.transform.Translate(new Vector3(x, y, 0));
+            bullet.transform.Translate(Polar.Circle(radius, interval * i));
         }
     }
 

@@ -6,6 +6,8 @@ public class EnemyCircle : MonoBehaviour {
     public CircleBulletPattern BulletPattern;
     public GameObject BulletPrefab;
     public int BulletSpawnDelay = 2;
+    public float MoveRadius = 10f;
+    public float MoveSpeed = 5f;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
@@ -53,6 +55,18 @@ public class EnemyCircle : MonoBehaviour {
                 direction: dirToPlayer,
                 speed: 20f
             );
+        }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.yellow;
+        int points = 20;
+        float interval = 360f / points;
+        for (int i = 0; i < points; i++) {
+            Vector3 offset = Vector3.left * MoveRadius;
+            Vector3 p0 = offset + transform.position + Polar.Circle(MoveRadius, interval * i);
+            Vector3 p1 = offset + transform.position + Polar.Circle(MoveRadius, interval * (i + 1));
+            Gizmos.DrawLine(p0, p1);
         }
     }
 }
