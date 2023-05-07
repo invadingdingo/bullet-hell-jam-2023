@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour {
-    public int BeatsUntilSpawn = 5;
+    public int BeatsUntilSpawn = 3;
     public GameObject SpawnVisualPrefab;
 
     private List<GameObject> waves;
@@ -61,7 +61,6 @@ public class WaveSpawner : MonoBehaviour {
                 StartWave(currentWave + 1);
             } else {
                 GameManager.instance.LevelComplete();
-                Debug.Log("Level Complete");
             }
         }
     }

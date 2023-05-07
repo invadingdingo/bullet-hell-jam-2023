@@ -7,14 +7,18 @@ public class EnemyCircle : MonoBehaviour {
     public GameObject BulletPrefab;
     public int BulletSpawnDelay = 2;
     public float MoveRadius = 10f;
-    public float MoveSpeed = 5f;
+    public float MoveSpeed = 30f;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
     private int beats;
+    private Vector3 startPosition;
+    private float moveAngle;
 
     void Start() {
-        beats = BulletSpawnDelay;
+        beats = 0;
+        startPosition = transform.position;
+        moveAngle = 0f;
         PlayerTransform = GetComponent<FindPlayer>().Find().transform;
         BeatManager.instance.AddQuarter(Fire);
     }
@@ -24,13 +28,16 @@ public class EnemyCircle : MonoBehaviour {
     }
 
     void Update() {
-        Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
-
         // rotate sprite
         transform.Rotate(0, 0, -45f * Time.deltaTime);
 
         // move eye
-        EyeTransform.position = transform.position + dirToPlayer * 0.3f;
+        EyeTransform.position = transform.position + DirToPlayer() * 0.3f;
+
+        // move enemy
+        Vector3 offset = Vector3.left * MoveRadius;
+        transform.position = startPosition + offset + Polar.Circle(MoveRadius, moveAngle);
+        moveAngle += MoveSpeed * Time.deltaTime;
     }
 
     void Fire() {
@@ -43,8 +50,6 @@ public class EnemyCircle : MonoBehaviour {
                 transform.localScale = new Vector3(s, s, 1f);
             });
 
-            Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
-
             // spawn bullets
             CircleBulletPattern pattern = Instantiate(BulletPattern, transform.position, Quaternion.identity);
 
@@ -52,13 +57,21 @@ public class EnemyCircle : MonoBehaviour {
                 prefab: BulletPrefab,
                 count: 10,
                 radius: 5f,
-                direction: dirToPlayer,
+                direction: DirToPlayer(),
                 speed: 20f
             );
         }
     }
 
-    void OnDrawGizmos() {
+    Vector3 DirToPlayer() {
+        if (PlayerTransform) {
+            return (PlayerTransform.position - transform.position).normalized;
+        } else {
+            return (Vector3.zero - transform.position).normalized;
+        }
+    }
+
+    void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         int points = 20;
         float interval = 360f / points;

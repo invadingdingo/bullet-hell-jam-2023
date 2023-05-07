@@ -17,18 +17,15 @@ public class Shoot : MonoBehaviour {
     
     void Start() {
         shootable = LayerMask.NameToLayer("Platform");
-        Debug.Log(shootable);
         BeatManager.instance.AddTriplet(Fire);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("here");
         if (other.gameObject.layer == shootable)
             canShoot = true;
     }
 
     void OnTriggerExit2D(Collider2D other) {
-        Debug.Log("not here");
         if(other.gameObject.layer == shootable)
             canShoot = false;
     }

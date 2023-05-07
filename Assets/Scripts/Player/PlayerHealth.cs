@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour {
     public float invulnerableTime;
     public GameObject[] slices;
     public GameObject PlayerSprite;
+    public AudioClip HitAudio;
 
     private LayerMask enemyBulletLayer;
     private LayerMask playerLayer;
@@ -25,15 +26,16 @@ public class PlayerHealth : MonoBehaviour {
         BeatManager.instance.AddTriplet(Flash);
     }
 
+    void OnDestroy() {
+        BeatManager.instance.RemoveTriplet(Flash);
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
-        // Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, true);
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy Bullet")) {
             if (!invulnerable) {
                 invulnerable = true;
                 GameManager.instance.mx.SetFloat("LowPass", 500); // Dampen audio.
-                Tween.Animate(this, 1f, 0f, 1f, Tween.EaseIn, c => {
-                    GameManager.instance.mx.SetFloat("Distortion", c); // Fix audio.
-                });
+                GameManager.instance.PlaySfx(HitAudio);
                 invulnerableBeats = 6;
                 RemoveHealth();
             }
@@ -77,6 +79,9 @@ public class PlayerHealth : MonoBehaviour {
         if (invulnerableBeats > 0) {
             Tween.Animate(this, 0f, 1f, 0.2f, Tween.EaseIn, c => {
                 spriteRenderer.color = Color.Lerp(Color.black, originalColor, c);
+                foreach (GameObject slice in slices) {
+                    slice.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.black, originalColor, c);
+                }
             });
             invulnerableBeats--;
         } else if (invulnerableBeats > -1) {
@@ -84,7 +89,6 @@ public class PlayerHealth : MonoBehaviour {
                 GameManager.instance.mx.SetFloat("LowPass", c); // Fix audio.
             });
             invulnerable = false;
-            // Physics2D.IgnoreLayerCollision(playerLayer, enemyBulletLayer, false);
             invulnerableBeats--; //Just so this only plays once.
         }
     }

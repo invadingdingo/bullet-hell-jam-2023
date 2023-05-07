@@ -7,14 +7,18 @@ public class EnemyRadial : MonoBehaviour {
     public GameObject BulletPrefab;
     public int BulletSpawnDelay = 1;
     public float MoveScale = 7f;
-    public float MoveSpeed = 5f;
+    public float MoveSpeed = 30f;
     public Transform EyeTransform;
     public Transform PlayerTransform;
 
     private int beats;
+    private Vector3 startPosition;
+    private float moveAngle;
 
     void Start() {
-        beats = BulletSpawnDelay;
+        beats = 0;
+        startPosition = transform.position;
+        moveAngle = 0f;
         PlayerTransform = GetComponent<FindPlayer>().Find().transform;
         BeatManager.instance.AddQuarter(Fire);
     }
@@ -24,13 +28,15 @@ public class EnemyRadial : MonoBehaviour {
     }
 
     void Update() {
-        Vector3 dirToPlayer = (PlayerTransform.position - transform.position).normalized;
-
         // rotate sprite
         transform.Rotate(0, 0, -45f * Time.deltaTime);
 
         // move eye
-        EyeTransform.position = transform.position + dirToPlayer * 0.3f;
+        EyeTransform.position = transform.position + DirToPlayer() * 0.3f;
+
+        // move enemy
+        transform.position = startPosition + Polar.Flower(MoveScale, moveAngle);
+        moveAngle += MoveSpeed * Time.deltaTime;
     }
 
     void Fire() {
@@ -51,12 +57,20 @@ public class EnemyRadial : MonoBehaviour {
                 count: 6,
                 radius: 3f,
                 speed: 20f,
-                rotationOffset: (transform.rotation.eulerAngles.z + 15f)
+                rotationOffset: transform.rotation.eulerAngles.z + 15f
             );
         }
     }
 
-    void OnDrawGizmos() {
+    Vector3 DirToPlayer() {
+        if (PlayerTransform) {
+            return (PlayerTransform.position - transform.position).normalized;
+        } else {
+            return (Vector3.zero - transform.position).normalized;
+        }
+    }
+
+    void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         int points = 100;
         float interval = 360f / points;

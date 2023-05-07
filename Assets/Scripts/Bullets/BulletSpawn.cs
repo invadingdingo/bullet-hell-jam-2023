@@ -36,7 +36,7 @@ public class BulletSpawn : MonoBehaviour {
                 count: 4,
                 radius: 0.1f,
                 speed: 20f,
-                rotationOffset: (transform.rotation.eulerAngles.z + 15f) * Mathf.Deg2Rad
+                rotationOffset: transform.rotation.eulerAngles.z + 15f
             );
         }
     }

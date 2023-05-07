@@ -30,7 +30,6 @@ public class BeatManager : MonoBehaviour {
 
     public void BeatEvent(BeatValue beat) {
         if (beat == BeatValue.QuarterBeat) {
-            //Debug.Log("Beat");
             if (OnQuarterBeatEvent != null)
                 OnQuarterBeatEvent();
         } else if (beat == BeatValue.Triplet) {
