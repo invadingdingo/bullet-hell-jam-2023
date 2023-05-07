@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Gameplay")]
     public bool mouseDash = false;
-    public int enemyCount = 0;
+    public int waveCount = 0;
 
     void Awake() {
         if (instance != null && instance != this) { 
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour {
 
     public void ResetValues() {
         Time.timeScale = 1f;
-        enemyCount = 0;
+        waveCount = 0;
     }
 
     public void LevelComplete() {
@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour {
         Instantiate(levelComplete, new Vector3(0, 0, 0), Quaternion.identity);
         yield return new WaitForSeconds(2f);
         transition = false;
+        waveCount = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         
     }

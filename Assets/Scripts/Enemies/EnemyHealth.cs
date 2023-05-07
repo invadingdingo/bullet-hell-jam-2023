@@ -34,7 +34,6 @@ public class EnemyHealth : MonoBehaviour {
         if (health <= 0f) {
             // if no health, DIE
             GameManager.instance.PlaySfx(KilledAudio);
-            GameManager.instance.enemyCount--;
             Destroy(gameObject);
         } else {
             // if has health, visualize it

@@ -8,8 +8,8 @@ public class TrackControl : MonoBehaviour {
     public bool[] playing;
 
     [Range(0, 5)]
-    public int enemyCount;
-    private int prevEnemyCount;
+    public int waveCount;
+    private int prevWaveCount;
     public float maxVolume;
     public float fadeTime;
 
@@ -19,9 +19,9 @@ public class TrackControl : MonoBehaviour {
     }
 
     void Update() {
-        enemyCount = GameManager.instance.enemyCount;
-        if (enemyCount > prevEnemyCount && enemyCount <= sources.Length) {
-            for(int x = 0; x < enemyCount; x++) {
+        waveCount = GameManager.instance.waveCount;
+        if (waveCount > prevWaveCount && waveCount <= sources.Length) {
+            for(int x = 0; x < waveCount; x++) {
                 if (!playing[x]) {
                     StartCoroutine(RaiseVolume(sources[x]));
                     playing[x] = true;
@@ -29,8 +29,8 @@ public class TrackControl : MonoBehaviour {
             }
         }
 
-        if (enemyCount < prevEnemyCount && enemyCount >= 0) {
-            for(int x = sources.Length - 1; x >= enemyCount; x--) {
+        if (waveCount < prevWaveCount && waveCount >= 0) {
+            for(int x = sources.Length - 1; x >= waveCount; x--) {
                 if (playing[x]) {
                     StartCoroutine(DecreaseVolume(sources[x]));
                     playing[x] = false;
@@ -38,7 +38,7 @@ public class TrackControl : MonoBehaviour {
             }
         }
 
-        prevEnemyCount = enemyCount;
+        prevWaveCount = waveCount;
     }
 
     IEnumerator RaiseVolume(AudioSource s) {

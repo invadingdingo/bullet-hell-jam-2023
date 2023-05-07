@@ -6,6 +6,10 @@ public class WaveSpawner : MonoBehaviour {
     public int BeatsUntilSpawn = 3;
     public GameObject SpawnVisualPrefab;
 
+    public bool startWave = true;
+    public bool starting = false;
+    public GameObject bossSplash;
+
     private List<GameObject> waves;
     private List<GameObject> spawnVisuals;
     private int currentWave;
@@ -28,17 +32,34 @@ public class WaveSpawner : MonoBehaviour {
         currentWave = i;
         GameObject wave = waves[i];
 
-        foreach (Transform child in wave.transform) {
-            child.gameObject.SetActive(false);
+        if (wave.name != "Health Wave")
+            GameManager.instance.waveCount++;
 
-            GameObject spawnVisual = Instantiate(SpawnVisualPrefab, child.transform.position, Quaternion.identity);
-            spawnVisuals.Add(spawnVisual);
-            GameManager.instance.enemyCount++;
+        if (wave.name == "Boss" && !starting)
+            StartCoroutine(BossWave(i));
+
+        if (startWave) {
+            foreach (Transform child in wave.transform) {
+                child.gameObject.SetActive(false);
+
+                GameObject spawnVisual = Instantiate(SpawnVisualPrefab, child.transform.position, Quaternion.identity);
+                spawnVisuals.Add(spawnVisual);
+            }
+
+            wave.SetActive(true);
+
+            beatCount = BeatsUntilSpawn;
         }
+    }
 
-        wave.SetActive(true);
-
-        beatCount = BeatsUntilSpawn;
+    IEnumerator BossWave(int i) {
+        startWave = false;
+        starting = true;
+        bossSplash.SetActive(true);
+        yield return new WaitForSeconds(2);
+        bossSplash.SetActive(false);
+        startWave = true;
+        StartWave(i);
     }
 
     void Spawn() {
