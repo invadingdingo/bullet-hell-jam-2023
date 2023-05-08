@@ -14,6 +14,8 @@ public class EnemyCircle : MonoBehaviour {
     private int beats;
     private Vector3 startPosition;
     private float moveAngle;
+    public int shootOffset;
+    private bool offsetComplete;
 
     void Start() {
         beats = 0;
@@ -41,7 +43,15 @@ public class EnemyCircle : MonoBehaviour {
     }
 
     void Fire() {
-        beats--;
+        if (offsetComplete) {
+            beats--;
+        } else {
+            if (shootOffset <= 0)
+                offsetComplete = true;
+            else 
+                shootOffset--;
+        }
+
         if (beats <= 0) {
             beats = BulletSpawnDelay;
 
