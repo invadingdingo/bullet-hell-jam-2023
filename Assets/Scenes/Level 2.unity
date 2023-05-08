@@ -1771,7 +1771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469707228}
   m_Layer: 0
-  m_Name: Heatlh Wave
+  m_Name: Health Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2064,7 +2064,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6369328730470177865, guid: d0ef646c0ba35db449db75f846959c32, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8e313fa59cfd7d24b86d752986a31808, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b9c05941ed46f3842917aac83426a393, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -4038,7 +4038,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6369328730470177865, guid: d0ef646c0ba35db449db75f846959c32, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b70d0f4edc888db4db40a33def8e6e44, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a2f0fc1f0c0b9b6409728d26f22e2d32, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -4228,7 +4228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267998315}
   m_Layer: 0
-  m_Name: Heatlh Wave
+  m_Name: Health Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5363,7 +5363,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6369328730470177865, guid: d0ef646c0ba35db449db75f846959c32, type: 2}
-  m_audioClip: {fileID: 8300000, guid: bca680b1a6b653b4898d9e36019a714f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 10ec33cfa7e4cf2499b0ff5ebf4e1040, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
