@@ -30,7 +30,11 @@ public class EnemyHealth : MonoBehaviour {
             spriteRenderer.color = Color.Lerp(Color.white, originalColor, c);
         });
 
-        health -= 1f;
+        if (GameManager.instance.easyMode)
+            health -= 2f;
+        else 
+            health -= 1f;
+
         if (health <= 0f) {
             // if no health, DIE
             GameManager.instance.PlaySfx(KilledAudio);

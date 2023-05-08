@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour {
 
     [Header("Gameplay")]
     public Toggle mouseDashToggle;
+    public Toggle difficultyToggle;
 
     public AudioClip play;
     public bool inRoutine = false;
@@ -19,6 +20,7 @@ public class PauseMenu : MonoBehaviour {
         musicVolumeSlider.value = GameManager.instance.musicVolume;
         sfxVolumeSlider.value = GameManager.instance.sfxVolume;
         mouseDashToggle.isOn = GameManager.instance.mouseDash;
+        difficultyToggle.isOn = GameManager.instance.easyMode;
     }
 
     public void UpdateMusic() {
@@ -33,6 +35,10 @@ public class PauseMenu : MonoBehaviour {
 
     public void UpdateMouseDash() {
         GameManager.instance.mouseDash = mouseDashToggle.isOn;
+    }
+
+    public void UpdateDifficulty() {
+        GameManager.instance.easyMode = difficultyToggle.isOn;
     }
 
     public void Play() {

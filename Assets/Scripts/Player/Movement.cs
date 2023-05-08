@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour {
             XYMovement();
         FaceMouse();
         Dash();
+        SkipWave();
         
     }
 
@@ -106,6 +107,12 @@ public class Movement : MonoBehaviour {
                 dashBeatCooldownCount = 0;
                 canDash = true;
             }
+        }
+    }
+
+    void SkipWave() {
+        if (Input.GetButtonDown("Skip")) {
+            GameManager.instance.SkipWave();
         }
     }
 

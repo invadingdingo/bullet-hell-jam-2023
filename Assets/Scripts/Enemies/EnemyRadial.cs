@@ -28,6 +28,7 @@ public class EnemyRadial : MonoBehaviour {
     }
 
     void Update() {
+
         // rotate sprite
         transform.Rotate(0, 0, -45f * Time.deltaTime);
 
@@ -35,7 +36,7 @@ public class EnemyRadial : MonoBehaviour {
         EyeTransform.position = transform.position + DirToPlayer() * 0.3f;
 
         // move enemy
-        transform.position = startPosition + Polar.Flower(MoveScale, moveAngle);
+        transform.position = startPosition + Polar.Flower(MoveScale, moveAngle - 30f);
         moveAngle += MoveSpeed * Time.deltaTime;
     }
 

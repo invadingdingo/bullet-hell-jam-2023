@@ -8,19 +8,18 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public AudioMixer mx;
     public SfxPlayer SfxPlayerPrefab;
-
     public GameObject levelComplete;
     private bool transition = false; 
-
     [Header("Volume")]
     [Range(-20, 0)]
     public float musicVolume = -10f;
     [Range(-20, 0)]
     public float sfxVolume = -10f;
-
     [Header("Gameplay")]
-    public bool mouseDash = false;
     public int waveCount = 0;
+    public bool easyMode = false;
+    public bool mouseDash = false;
+    public List<GameObject> currentEnemies;
 
     void Awake() {
         if (instance != null && instance != this) { 
@@ -90,6 +89,12 @@ public class GameManager : MonoBehaviour {
 
     public void LoadScene(int sceneId) {
         StartCoroutine(LoadSceneAsync(sceneId));
+    }
+
+    public void SkipWave() {
+        foreach(GameObject enemy in currentEnemies) {
+            Destroy(enemy);
+        }
     }
 
     IEnumerator LoadSceneAsync(int sceneId) {

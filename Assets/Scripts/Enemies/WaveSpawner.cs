@@ -71,9 +71,11 @@ public class WaveSpawner : MonoBehaviour {
                 Destroy(child);
             }
             spawnVisuals.Clear();
+            GameManager.instance.currentEnemies.Clear();
 
             foreach (Transform child in wave.transform) {
                 child.gameObject.SetActive(true);
+                GameManager.instance.currentEnemies.Add(child.gameObject);
             }
         }
 

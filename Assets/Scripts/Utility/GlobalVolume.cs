@@ -8,14 +8,16 @@ public class GlobalVolume : MonoBehaviour {
     private Bloom bloom;
 
     void Start() {
-        BeatManager.instance.AddQuarter(OnBeat);
+        if (BeatManager.instance)
+            BeatManager.instance.AddQuarter(OnBeat);
 
         Volume volume = GetComponent<Volume>();
         volume.profile.TryGet<Bloom>(out bloom);
     }
 
     void OnDestroy() {
-        BeatManager.instance.RemoveQuarter(OnBeat);
+        if (BeatManager.instance)
+            BeatManager.instance.RemoveQuarter(OnBeat);
     }
 
     void OnBeat() {
