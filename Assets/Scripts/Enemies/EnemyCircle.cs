@@ -52,7 +52,7 @@ public class EnemyCircle : MonoBehaviour {
                 shootOffset--;
         }
 
-        if (beats <= 0) {
+        if (beats <= 0 && offsetComplete) {
             beats = BulletSpawnDelay;
 
             // juice up the scale
